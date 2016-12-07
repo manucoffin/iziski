@@ -43,6 +43,8 @@ rgb(255, 127, 42)
 
 html{
     font-family: lato-regular;
+    background-color: rgb(239,239,239);
+    z-index: 0;
 }
 
 .landing-page{
@@ -57,20 +59,41 @@ header .container{
     box-shadow: none;
 }
 
-header .container ul{
-/*    display: flex;*/
+.main-nav ul{
+    display: flex;
+    width: 70%;
     
 }
 
-header .container ul li{
-/*    flex-grow: 1;*/
+.main-nav ul li{
     text-align: center;
+    flex-grow: 1;
 }
 
-header .container ul li a{
+.main-nav ul li a{
     padding: 0 !important;
     font-family: lato-light;
     color: rgb(150,150,150) !important;
+}
+
+.main-nav{
+    box-shadow: none;
+    width: 100%;
+    display: flex;
+    z-index: 1000;
+    background-color: rgb(239,239,239);
+    height: 50px;
+    
+}
+
+.tabs{
+    background-color: rgb(239,239,239);
+}
+
+.sticky-nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .tabs .indicator {
@@ -105,3 +128,55 @@ h3{
     padding: 10px !important;
     box-sizing: border-box;
 }
+
+.carousel-artisanat{
+    margin: 0 0 10px 0;
+}
+
+.carousel-artisanat img{
+    width: 100%;
+}
+
+.event-carousel{
+    margin: 0 -5px 10px -5px;
+    
+}
+
+.event-carousel .slick-track{
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.carousel-artisanat-preview{
+    margin: 0 -5px;
+}
+
+.carousel-artisanat-preview div, .event-carousel div{
+    margin: 0 5px;
+}
+
+.slick-arrow:before{
+    color: rgb(100,100,100);
+}
+
+#logo-fb{
+    background-color: white;
+}
+
+.pre-footer{
+    height: 100px;
+    width: 100%;
+    background: url('../img/pre-footer.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+footer{
+    color: white;
+    background-color: rgb(77,77,77);
+}
+
+footer .row{
+    margin-bottom: 0;
+}
+
