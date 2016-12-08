@@ -1,0 +1,84 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;}
+
+.corps {
+    background-color: rgb(77,77,77);
+    position: fixed;
+    height: 100%;
+    width: 100%;}
+
+header {
+    height: 60px;
+    display: flex;
+    flex-direction: row;}
+
+.zoneProfil {
+    flex: auto;
+    text-align: right;}
+
+.zoneLogo {flex: auto;}
+
+section {
+    align-content: stretch;
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 60px);
+    width: 100%;}
+
+.navigateurBack {
+    color: rgb(255,255,255);
+    flex-basis: 220px;
+    background-color: rgb(65,65,65);}
+
+.zoneDesBoites {
+    padding: 10px;
+    flex: auto;
+    align-content: stretch;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(237,237,237);}
+
+.titreZone {
+    margin: 0px;
+    color: rgb(50,120,127);
+}
+
+.divTitreZone {
+    flex-basis: 40px;
+}
+
+.insertZone {
+    flex: auto;
+}
+
+/*ECRASEMENT DU STYLE DE MATERIALZSE*/
+.navigateurBack .col, .navigateurBack .s12{padding: 0px;}
+.navigateurBack .tabs{background-color: rgb(77,77,77);}
+.navigateurBack .tabs .tab a{
+    padding: 0px;
+    color: rgb(255,255,255);}
+.navigateurBack .tabs .indicator{background-color: rgb(177, 67, 1);}
+.navigateurBack .collapsible-header{
+    border-bottom-style: none;
+    background-color: rgba(65,65,65,0);}
+.navigateurBack .collapsible{
+    border-style: none;
+    box-shadow : none;}
+.navigateurBack .collapsible-body{
+/*    box-shadow: 0px 0px 2px white, 2px 2px 5px 4px black inset;*/
+    border-style: none;
+    background-color: rgb(128, 128, 128);}
+.navigateurBack .btn-flat{
+    padding: 0px 0px 0px 22px;
+    font-size: 0.95em;
+    color: rgb(226, 226, 226);
+    width: 100%;}
+
+.insertZone .preloader-wrapper .spinner-layer {border-color : rgb(177, 67, 1);}
+.insertZone .preloader-wrapper .spinner-green-only {border-color : rgb(177, 67, 1);}
+
+.insertZone .preloader-wrapper{
+    margin: calc(50vh - 100px) 0 0 calc(50% - 20px);
+}
