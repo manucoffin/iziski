@@ -42,16 +42,10 @@ section {
 
 .titreZone {
     margin: 0px;
-    color: rgb(50,120,127);
-}
+    color: rgb(50,120,127);}
 
-.divTitreZone {
-    flex-basis: 40px;
-}
-
-.insertZone {
-    flex: auto;
-}
+.divTitreZone {flex-basis: 40px;}
+.insertZone {flex: auto;}
 
 /*ECRASEMENT DU STYLE DE MATERIALZSE*/
 .navigateurBack .col, .navigateurBack .s12{padding: 0px;}
@@ -67,7 +61,7 @@ section {
     border-style: none;
     box-shadow : none;}
 .navigateurBack .collapsible-body{
-/*    box-shadow: 0px 0px 2px white, 2px 2px 5px 4px black inset;*/
+    box-shadow:0 3px 2px 0 rgba(0,0,0,0.2) inset, 0 0 0 0 rgba(0,0,0,0.0) inset, 0 -3px 3px 0 rgba(0,0,0,0.2) inset , 0 0 0 0 rgba(0,0,0,0);
     border-style: none;
     background-color: rgb(128, 128, 128);}
 .navigateurBack .btn-flat{
@@ -78,7 +72,4 @@ section {
 
 .insertZone .preloader-wrapper .spinner-layer {border-color : rgb(177, 67, 1);}
 .insertZone .preloader-wrapper .spinner-green-only {border-color : rgb(177, 67, 1);}
-
-.insertZone .preloader-wrapper{
-    margin: calc(50vh - 100px) 0 0 calc(50% - 20px);
-}
+.insertZone .preloader-wrapper{margin: calc(50vh - 100px) 0 0 calc(50% - 20px);}

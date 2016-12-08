@@ -56,11 +56,10 @@
                         <div id="test2" class="col s12">
                             <ul class="collapsible" data-collapsible="expandable">
                                 <li>
-                                    <div class="collapsible-header"><i class="material-icons">dashboard</i>Dashboard</div>
-<!--                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>-->
+                                    <div class="collapsible-header" onclick="changeOnglet('dashBoardSite')"><i class="material-icons">dashboard</i>Dashboard</div>
                                 </li>
                                 <li>
-                                    <div class="collapsible-header"><i class="material-icons">chat_bubble</i>Blog</div>
+                                    <div class="collapsible-header" onclick="changeOnglet('blog')"><i class="material-icons">chat_bubble</i>Blog</div>
                                     <div class="collapsible-body">
                                         <a class="btn-flat">Lister les articles</a>
                                         <a class="btn-flat">Ajouter un article</a>
@@ -109,7 +108,7 @@
                         <h4 id="titreZone" class="titreZone">Dashboard</h4>
                     </div>
                     <div class="insertZone" id="insertZone">
-                        <div class="preloader-wrapper small active">
+                        <div class="preloader-wrapper small active" id="loaderBoite">
                             <div class="spinner-layer spinner-green-only">
                                 <div class="circle-clipper left">
                                     <div class="circle"></div>
