@@ -4,47 +4,73 @@ var tableDesTitre = {
 }
 
 window.onload = function(){
-    changeOnglet
+    ZoneBoite = new DomWork(byId('insertZone'));
+    
+    setTimeout(function(){
+        
+        //ouvre le dashBoard de site
+        changeOnglet('dashBoardSite');
+        
+        //initialise l'ouverture des menus
+        $(document).ready(function(){
+            console.log('ok');
+            $('.collapsible').collapsible();
+        });
+        
+    },1000);
+    
+    //charge les menus
+    menuEntreprise = new DomWork(byId('menuEntreprise'));
+    menuSite = new DomWork(byId('menuSite'));
+    
+    menuEntreprise.ajaxInsertHtml({path : 'section/menuEntreprise.html'});
+    menuSite.ajaxInsertHtml({path : 'section/menuSite.html'});
+    
 }
 
 function changeOnglet(cible){
     var titreZone = byId('titreZone'),
         loaderBoite = byId('loaderBoite'),
+        insertZone = byId('insertZone'),
         classBoite = byQueryAll('.boite');
     
     //supprime les anciennes boites
     for(var i = 0 ; i < classBoite.length ; i++) classBoite[i].deleteNode();
     
-    //montre le loader
-    loaderBoite.style.display = 'block';
-    
     //affiche le titre
     titreZone.textContent = tableDesTitre[cible];
     
+    insertZone.innerHTML = '';
+    
     //selectionne les vus à montrer
-    if(cible == 'dashBoardSite') afficheBoites(['vuActiviteSite']);
-    if(cible == 'blog') afficheBoites(['lesBlogs']);
+    if(cible == 'dashBoardSite'){
+        ZoneBoite.insertDomNode([
+            {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                {type : 'div', attributes : {class : 'col s9'}, contents : structureBoite('equalizer', 'Vue de l\'activité', 'boiteAjax/vuActiviteSite.html')},
+                {type : 'div', attributes : {class : 'col s3'}, contents : structureBoite('fast_forward', 'Actions rapides', 'boiteAjax/ActionRapideSite.html')}
+            ]},
+            {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                {type : 'div', attributes : {class : 'col s5'}, contents : structureBoite('mode_edit', 'Activitées éditorial', 'boiteAjax/ActiviteEditorial.html')},
+                {type : 'div', attributes : {class : 'col s7'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/DernierAvisProduits.html')}
+            ]}
+        ]);
+    }
+    if(cible == 'blog'){
+         ZoneBoite.insertDomNode([
+            {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Les blogs', 'boiteAjax/lesBlogs.html')}
+        ]);
+    }
     
 }
 
-function afficheBoites(tableBoite){
-    
-    for(var i = 0 ; i < tableBoite.length ; i++){
-        ajaxBoite(tableBoite[i]);
-    }
-}
-
-function ajaxBoite(boiteCible){
-    var xhr = new XMLHttpRequest(),
-        insertZone = byId('insertZone'),
-        loaderBoite = byId('loaderBoite');
-    
-    xhr.open('GET', 'boiteAjax/' + boiteCible + '.html');
-    xhr.send(null);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            loaderBoite.style.display = 'none';
-            insertZone.innerHTML += xhr.responseText
-        }
-    }
+function structureBoite(icone, titre, path){
+    return [
+        {type : 'div', attributes : {class : 'boiteAjax card'}, contents : [
+            {type : 'div', attributes : {class : 'enteteBoite'}, contents : [
+                {type : 'i', attributes : {class : 'small material-icons colorIcone'}, contents : icone},
+                {type : 'span', attributes : {class : 'titreDeLaBoite'}, contents : titre}
+            ]},
+            {type : 'div', attributes : {class : 'divInnerBoite'}, contents : [{ajax : {path : path}}]}
+        ]}
+    ]
 }

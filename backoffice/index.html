@@ -4,20 +4,10 @@
         <meta charset="UTF-8">
         <title>Iziski, plus d'innovation, autant de sensations !</title>
 
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">        
         
         <!--Script pour le back-office-->
-        <script src="js/back-office.js"></script>
-        <script src="js/DomWork.js"></script>
         <link href="css/back-office.css" rel="stylesheet">
         
     </head>
@@ -26,16 +16,16 @@
         <div class="corps">
             
             <header>
-                <div class="zoneLogo">Iziski</div>
+                <div class="zoneLogo"><img src="img/logo_NB_2.png" class="logoIziski" alt="logo de Iziski"></div>
                 <div class="zoneProfil">
-                    <a class='dropdown-button btn-flat' href='#' data-activates='dropdown1'>Bibi <i class="material-icons">account_circle</i></a>
+                    <a class='dropdown-button btn-flat nomUser' href='#' data-activates='dropdown1'>John DOE <i class="material-icons imgUser">account_circle</i></a>
 
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!">one</a></li>
-                        <li><a href="#!">two</a></li>
+                        <li><a href="#!">Mon profil</a></li>
+                        <li><a href="#!">Paramètres</a></li>
                         <li class="divider"></li>
-                        <li><a href="#!">three</a></li>
+                        <li><a href="#!">Déconnexion</a></li>
                     </ul>
                 </div>
             </header>
@@ -47,57 +37,16 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s6"><a href="#test1">Enterprise</a></li>
-                                <li class="tab col s6"><a class="active" href="#test2">Site</a></li>
+                                <li class="tab col s6"><a href="#menuEntreprise">Enterprise</a></li>
+                                <li class="tab col s6"><a class="active" href="#menuSite">Site</a></li>
                             </ul>
                         </div>
-                        <div id="test1" class="col s12">Test 1</div>
+                        <div id="menuEntreprise" class="col s12">
+                            <!--Menu entreprise-->
+                        </div>
                         
-                        <div id="test2" class="col s12">
-                            <ul class="collapsible" data-collapsible="expandable">
-                                <li>
-                                    <div class="collapsible-header" onclick="changeOnglet('dashBoardSite')"><i class="material-icons">dashboard</i>Dashboard</div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header" onclick="changeOnglet('blog')"><i class="material-icons">chat_bubble</i>Blog</div>
-                                    <div class="collapsible-body">
-                                        <a class="btn-flat">Lister les articles</a>
-                                        <a class="btn-flat">Ajouter un article</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">today</i>Evénement</div>
-                                    <div class="collapsible-body">
-                                        <a class="btn-flat">Créer un événement</a>
-                                        <a class="btn-flat">Lister les événements</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">equalizer</i>Statistiques</div>
-                                    <div class="collapsible-body">
-                                        <a class="btn-flat">vente de la semaine</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Utilisateurs</div>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <a class="btn-flat">Voir les utilisateurs</a>
-                                            <a class="btn-flat">Ajouter des utilisateurs</a>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">shopping_cart</i>Shop</div>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <a class="btn-flat">Liste des produits</a>
-                                            <a class="btn-flat">Ajouter des produits</a>
-                                            <a class="btn-flat">Avis</a>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div id="menuSite" class="col s12">
+                            <!--Menu site-->
                         </div>
                     </div>
                 </div>
@@ -107,7 +56,7 @@
                     <div class="divTitreZone">
                         <h4 id="titreZone" class="titreZone">Dashboard</h4>
                     </div>
-                    <div class="insertZone" id="insertZone">
+                    <div class="insertZone row" id="insertZone">
                         <div class="preloader-wrapper small active" id="loaderBoite">
                             <div class="spinner-layer spinner-green-only">
                                 <div class="circle-clipper left">
@@ -122,10 +71,18 @@
                             </div>
                       </div>
                     </div>
-                    
                 </div>
             </section>
         </div>
-        
     </body>
+    
+    <!--Materialize-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+
+    <!--Script pour le back-office-->
+    <script src="js/back-office.js"></script>
+    <script src="js/DomWork.js"></script>
 </html>

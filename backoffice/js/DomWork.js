@@ -53,11 +53,14 @@
             return -1;
     }
     
+    //CLASS DomWork
+    DomWork = function(noeud){this.noeud = noeud;}
+    
     // EXTENSION DE TOUTES LES CALSSES AVEC LA MÉTHODE EXTEND
     String.prototype.extend=function(obj){for( var i in obj){this[i] =obj[i]};};
     Array.prototype.extend=function(obj){for( var i in obj){this[i] =obj[i]};};
     Number.prototype.extend=function(obj){for( var i in obj){this[i] =obj[i]};};
-    Node.prototype.extend=function(obj){for( var i in obj){this[i] =obj[i]};};
+    DomWork.prototype.extend=function(obj){for( var i in obj){this[i] =obj[i]};};
 
     
     // EXTENSION DE LA CLASS STRING
@@ -90,18 +93,18 @@
     
     
     // EXTENSTION DE LA CLASS NODE
-    Node.prototype.extend({
+    DomWork.prototype.extend({
         changeId : function(val){
-            this.id=val;
-            return this;
+            this.noeud.id=val;
+            return this.noeud;
         },
-        css : function(arrayCss){for(var i in arrayCss) this.style[i.css()] = arrayCss[i];},
-        addAttributes : function(arrayAttributes){for(var i in arrayAttributes) this.setAttribute(i,arrayAttributes[i]);},
+        css : function(arrayCss){for(var i in arrayCss) this.noeud.style[i.css()] = arrayCss[i];},
+        addAttributes : function(arrayAttributes){for(var i in arrayAttributes) this.noeud.setAttribute(i,arrayAttributes[i]);},
         addFunctions : function(arrayFuntions){
             for(var i in arrayFuntions){
                 var desc = !(arrayFuntions[0]['desc'])? false : arrayFuntions[0]['desc'],
                     event = !(arrayFuntions[0]['event'])? 'click' : arrayFuntions[0]['event'];
-                this.addEventListener(event, arrayFuntions[0]['function'], desc);
+                this.noeud.addEventListener(event, arrayFuntions[0]['function'], desc);
             }
         },
         insertDomNode : function(NodeJson){
@@ -112,6 +115,15 @@
             for(var i = 0; i < NodeJson.length ; i++){
                 if(NodeJson[i]['texte']){
                     this.creatTextElement(NodeJson[i]['texte']);
+                }else if (NodeJson[i]['ajax']){
+                    this.ajaxInsertHtml({
+                        path : NodeJson[i]['ajax']['path'],
+                        data : NodeJson[i]['ajax']['data'],
+                        methode : NodeJson[i]['ajax']['methode'],
+                        insertFunction : NodeJson[i]['ajax']['insertFunction'],
+                        async : NodeJson[i]['ajax']['async'],
+                        loader : NodeJson[i]['ajax']['loader']
+                    });
                 }else{
                     this.creatNode(
                         NodeJson[i]['type'],
@@ -123,8 +135,8 @@
                 }
             }
         },
-        creatNode : function(type, attributs, functions, styles, contents){
-            var element = this.createNodeElement(type);
+        creatNode : function(type, attributs, functions, styles, contents = ''){
+            var element = new DomWork(this.createNodeElement(type));
 
             element.css(styles);
             element.addAttributes(attributs);
@@ -137,17 +149,47 @@
         },
         createNodeElement : function(type){
             var element = document.createElement(type);
-            if(this != 'undefined') this.appendChild(element);
+            if(this.noeud != 'undefined') this.noeud.appendChild(element);
             return element;
         },
         creatTextElement : function(text){
             var element = document.createTextNode(text);
-            if(this != 'undefined') this.appendChild(element);
+            if(this != 'undefined') this.noeud.appendChild(element);
             return element;
         },
         deleteNode : function(){
-            var parent = this.parentNode;
-            parent.removeChild(this);
+            var parent = this.noeud.parentNode;
+            parent.removeChild(this.noeud);
+        },
+        ajaxInsertHtml : function(tbJson){
+            var xhr = new XMLHttpRequest(),
+                pointInsertion = this.noeud,
+                methode = (tbJson['methode'])? tbJson['methode'] : 'get',
+                data = (tbJson['data'])? tbJson['data'] : null,
+                asynchrone = !(tbJson['async'])? true : tbJson['async'],
+                insertFunction = (tbJson['insertFunction'])? tbJson['insertFunction'] : 'innerHTML';
+            
+            if(tbJson['loader']){
+                if(typeof(tbJson['loader']) == 'object') this.jsonLoopNode(tbJson['loader']);
+                else this.innerHTML = tbJson['loader'];
+            }
+            
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    pointInsertion.innerHTML = '';
+                    if(insertFunction == 'innerHTML') pointInsertion.innerHTML += xhr.responseText;
+                    if(insertFunction == 'insertDomNode') pointInsertion.insertDomNode(xhr.responseText);
+                }
+            }
+            if(methode = 'get'){
+                var pathData = (data == null)? tbJson['path'] : tbJson['data'] + '?' + data;
+                xhr.open(methode, pathData, asynchrone);
+                xhr.send(null);
+            }else{
+                xhr.open(methode, tbJson['path'], asynchrone);
+                xhr.setRequestHeader ('Content-Type','application/x-www-form-urlencoded');
+                xhr.send(data);
+            }
         }
     });
 })();
