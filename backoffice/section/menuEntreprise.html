@@ -1,30 +1,31 @@
 
-<ul class="collapsible" data-collapsible="expandable">
+<ul class="collapsible" data-collapsible="accordion">
     <li>
-        <div class="collapsible-header" onclick="changeOnglet('dashBoardSite')"><i class="material-icons">dashboard</i>Dashboard</div>
+        <div class="collapsible-header" id="menuDashboardEntreprise" onclick="selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
-        <div class="collapsible-header" onclick="changeOnglet('blog')"><i class="material-icons">chat_bubble</i>Produits</div>
+        <div class="collapsible-header" id="menuArticle" onclick="selectedMenu(this.id)"><i class="material-icons">chat_bubble</i>Articles</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Stock</a>
+            <a class="btn-flat">Liste des articles</a>
             <a class="btn-flat">Ajouter un article</a>
+            <a class="btn-flat">Stock</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">today</i>Stock</div>
+        <div class="collapsible-header" id="menuStock" onclick="selectedMenu(this.id)"><i class="material-icons">today</i>Stock</div>
         <div class="collapsible-body">
             <a class="btn-flat">Créer un événement</a>
             <a class="btn-flat">Lister les événements</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">equalizer</i>Commande</div>
+        <div class="collapsible-header" id="menuCommande" onclick="selectedMenu(this.id)"><i class="material-icons">equalizer</i>Commande</div>
         <div class="collapsible-body">
             <a class="btn-flat">vente de la semaine</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Artisant</div>
+        <div class="collapsible-header" id="menuDashboardArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">supervisor_account</i>Artisant</div>
         <div class="collapsible-body">
             <ul>
                 <a class="btn-flat">Voir les utilisateurs</a>

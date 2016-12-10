@@ -29,12 +29,20 @@ section {
 
 .navigateurBack {
     color: rgb(255,255,255);
-    flex-basis: 220px;
+    flex-basis: 200px;
+    min-width: 200px;
     background-color: rgb(65,65,65);}
+
+/*
+.navigateurBack .col{
+    position: relative;
+}
+*/
 
 .zoneDesBoites {
     padding: 10px;
     flex: auto;
+    overflow-y: auto;
     align-content: stretch;
     display: flex;
     flex-direction: column;
@@ -74,6 +82,33 @@ section {
     width: 100%;
     margin-bottom: 8px;}
 
+.logoIziski {
+    height: 40px;
+    margin: 5px 14px;}
+
+.nomUser {
+    color: rgb(255,255,255);
+    height: 60px;
+    padding-top: 8px;}
+
+.imgUser {
+    font-size: 45px !important;
+    vertical-align: bottom;}
+
+
+.selectedMenu{background-color: rgb(0, 131, 147) !important;}
+
+.selectedMenu::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent; 
+    border-right:1em solid rgb(237,237,237);
+    margin-top: 0.5em;
+    margin-right: -1.1em;
+    float: right;}
+
 /*ECRASEMENT DU STYLE DE MATERIALZSE*/
 .navigateurBack .col, .navigateurBack .s12{padding: 0px;}
 .navigateurBack .tabs{background-color: rgb(77,77,77);}
@@ -83,8 +118,11 @@ section {
 .navigateurBack .tabs .indicator{background-color: rgb(177, 67, 1);}
 .navigateurBack .collapsible-header{
     border-bottom-style: none;
+    transition: background-color 0.3s;
     background-color: rgba(65,65,65,0);}
+.navigateurBack .collapsible-header:hover{background-color: rgb(34,104,111);}
 .navigateurBack .collapsible{
+    margin-top: 0px;
     border-style: none;
     box-shadow : none;}
 .navigateurBack .collapsible-body{
@@ -107,19 +145,8 @@ section {
 .insertZone .preloader-wrapper{margin: calc(50vh - 100px) 0 0 calc(50% - 20px);}
 
 
+/*VERSION MOBILE*/
 @media (max-width:1000px){
     .stretchCol {flex-direction: column;}
-    .stretchCol .col {width: 100% !important;}}
-
-.logoIziski {
-    height: 40px;
-    margin: 5px 14px;}
-
-.nomUser {
-    color: rgb(255,255,255);
-    height: 60px;
-    padding-top: 8px;}
-
-.imgUser {
-    font-size: 45px !important;
-    vertical-align: bottom;}
+    .stretchCol .col {width: 100% !important;}
+}

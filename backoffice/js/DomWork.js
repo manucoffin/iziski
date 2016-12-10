@@ -120,9 +120,12 @@
                         path : NodeJson[i]['ajax']['path'],
                         data : NodeJson[i]['ajax']['data'],
                         methode : NodeJson[i]['ajax']['methode'],
-                        insertFunction : NodeJson[i]['ajax']['insertFunction'],
+                        insertMode : NodeJson[i]['ajax']['insertMode'],
                         async : NodeJson[i]['ajax']['async'],
-                        loader : NodeJson[i]['ajax']['loader']
+                        loader : NodeJson[i]['ajax']['loader'],
+                        onprogress : NodeJson[i]['ajax']['onprogress'],
+                        onerror : NodeJson[i]['ajax']['onerror'],
+                        onload : NodeJson[i]['ajax']['onload']
                     });
                 }else{
                     this.creatNode(
@@ -167,20 +170,20 @@
                 methode = (tbJson['methode'])? tbJson['methode'] : 'get',
                 data = (tbJson['data'])? tbJson['data'] : null,
                 asynchrone = !(tbJson['async'])? true : tbJson['async'],
-                insertFunction = (tbJson['insertFunction'])? tbJson['insertFunction'] : 'innerHTML';
+                insertMode = (tbJson['insertMode'])? tbJson['insertMode'] : 'innerHTML';
             
+            //insertion d'un loader pour faire patienter
             if(tbJson['loader']){
                 if(typeof(tbJson['loader']) == 'object') this.jsonLoopNode(tbJson['loader']);
                 else this.innerHTML = tbJson['loader'];
             }
             
-            xhr.onreadystatechange = function(){
-                if (xhr.readyState == 4 && xhr.status == 200){
-                    pointInsertion.innerHTML = '';
-                    if(insertFunction == 'innerHTML') pointInsertion.innerHTML += xhr.responseText;
-                    if(insertFunction == 'insertDomNode') pointInsertion.insertDomNode(xhr.responseText);
-                }
-            }
+            //onload, onprogress et onerror
+            if(tbJson['onload']) xhr.onload = tbJson['onload'];
+            if(tbJson['onprogress']) xhr.onprogress = tbJson['onprogress'];
+            if(tbJson['onerror']) xhr.onerror = tbJson['onerror'];
+            
+            //ouverture du l'XMLHttpRequest
             if(methode = 'get'){
                 var pathData = (data == null)? tbJson['path'] : tbJson['data'] + '?' + data;
                 xhr.open(methode, pathData, asynchrone);
@@ -190,6 +193,16 @@
                 xhr.setRequestHeader ('Content-Type','application/x-www-form-urlencoded');
                 xhr.send(data);
             }
+
+            //Execution à la fin du chargement
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    pointInsertion.innerHTML = '';
+                    if(insertMode == 'innerHTML') pointInsertion.innerHTML += xhr.responseText;
+                    if(insertMode == 'insertDomNode') pointInsertion.insertDomNode(xhr.responseText);
+                }
+            }
+            
         }
     });
 })();

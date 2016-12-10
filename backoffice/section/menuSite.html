@@ -1,42 +1,45 @@
-<ul class="collapsible" data-collapsible="expandable">
+<!--<div class="flecheIndication"></div>-->
+<ul class="collapsible" data-collapsible="accordion">
     <li>
-        <div class="collapsible-header" onclick="changeOnglet('dashBoardSite')"><i class="material-icons">dashboard</i>Dashboard</div>
+        <div class="collapsible-header selectedMenu" id="menuDashboardSite" onclick="changeOnglet('dashBoardSite'); selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
-        <div class="collapsible-header" onclick="changeOnglet('blog')"><i class="material-icons">chat_bubble</i>Blog</div>
+        <div class="collapsible-header" id="menuBlog" onclick="changeOnglet('blog'); selectedMenu(this.id)"><i class="material-icons">chat_bubble</i>Blog</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Lister les articles</a>
-            <a class="btn-flat">Ajouter un article</a>
+            <a class="btn-flat">Liste des posts</a>
+            <a class="btn-flat">Ajouter un post</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">today</i>Evénement</div>
+        <div class="collapsible-header" id="menuEvenement" onclick="selectedMenu(this.id)"><i class="material-icons">today</i>Evénement</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Créer un événement</a>
             <a class="btn-flat">Lister les événements</a>
+            <a class="btn-flat">Créer un événement</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">equalizer</i>Statistiques</div>
+        <div class="collapsible-header" id="menuStatistique" onclick="selectedMenu(this.id)"><i class="material-icons">equalizer</i>Statistiques</div>
         <div class="collapsible-body">
-            <a class="btn-flat">vente de la semaine</a>
+            <a class="btn-flat">Vente sur 30 jours</a>
+            <a class="btn-flat">Visite sur 30 jours</a>
+            <a class="btn-flat">Navigateur</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Utilisateurs</div>
+        <div class="collapsible-header" id="menuutilisateur" onclick="selectedMenu(this.id)"><i class="material-icons">supervisor_account</i>Utilisateurs</div>
         <div class="collapsible-body">
             <ul>
-                <a class="btn-flat">Voir les utilisateurs</a>
-                <a class="btn-flat">Ajouter des utilisateurs</a>
+                <a class="btn-flat">Lister les utilisateurs</a>
+                <a class="btn-flat">Ajouter un utilisateur</a>
             </ul>
         </div>
     </li>
     <li>
-        <div class="collapsible-header"><i class="material-icons">shopping_cart</i>Shop</div>
+        <div class="collapsible-header" id="menuShop" onclick="selectedMenu(this.id)"><i class="material-icons">shopping_cart</i>Shop</div>
         <div class="collapsible-body">
             <ul>
                 <a class="btn-flat">Liste des produits</a>
-                <a class="btn-flat">Ajouter des produits</a>
+                <a class="btn-flat">Ajouter un produits</a>
                 <a class="btn-flat">Avis</a>
             </ul>
         </div>
