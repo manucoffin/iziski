@@ -14,6 +14,8 @@ $(document).ready(function(){
         }, 500);
     });
 
+    var showArrow = ($(window).width()<768) ? false: true;
+    
 
     $('.carousel-artisanat').slick({
         slidesToShow: 1,
@@ -30,14 +32,17 @@ $(document).ready(function(){
         dots: true,
         centerMode: true,
         focusOnSelect: true,
-        arrows:true,
+        arrows:showArrow,
         variableWidth:true
     });
+    
+    var nbSlides = ($(window).width()<768) ? 1: 3;
 
     $('.event-carousel').slick({
         infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToShow: nbSlides,
+        slidesToScroll: 1,
+        arrows: showArrow
     });
     
     
@@ -45,16 +50,19 @@ $(document).ready(function(){
         if ($(this).scrollTop() > $(window).height()) 
         {
             $("#nav").addClass("sticky-nav");
+            $('#mobile-nav').addClass("sticky-nav")
             $('body').offset({ top: 50, left: 0 });
         } else {
             $("#nav").removeClass("sticky-nav");
+            $('#mobile-nav').removeClass("sticky-nav")
             $('body').offset({ top: 0, left: 0 });
         }
     });
     
     
     $('.parallax').parallax();
-
+    
+    $(".button-collapse").sideNav();
 });
 
 $('.carousel.carousel-slider').carousel({full_width: true});
