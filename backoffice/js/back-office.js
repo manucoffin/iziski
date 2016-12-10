@@ -2,6 +2,8 @@ var menuActif = '',
     tableDesTitre = {
         dashBoardSite : 'Dashboard',
         blog : 'Blog',
+        listeBlog : 'Blog - Liste des posts',
+        ajouterBlog : 'Blog - Ajouter un post',
         evenement : 'Événement',
         statistiques : 'Statistiques',
         utilisateurs : 'Utilisateurs',
@@ -63,7 +65,26 @@ function changeOnglet(cible){
         }
         if(cible == 'blog'){
              ZoneBoite.insertDomNode([
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Les blogs', 'boiteAjax/lesBlogs.html')}
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/lesBlogs.html')},
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/ajouterPost.html', function(){
+                    $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
+                    $(document).ready(function() {$('select').material_select();});
+                })}
+            ]);
+        }
+        
+        if(cible == 'listeBlog'){
+             ZoneBoite.insertDomNode([
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/lesBlogs.html')}
+            ]);
+        }
+        
+        if(cible == 'ajouterBlog'){
+             ZoneBoite.insertDomNode([
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/ajouterPost.html', function(){
+                    $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
+                    $(document).ready(function() {$('select').material_select();});
+                })}
             ]);
         }
     }
