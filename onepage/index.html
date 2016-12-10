@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iziski, plus d'innovation, autant de sensations !</title>
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -12,16 +13,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
    
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <section class="landing-page">
-        
+        <div class="parallax-container">
+            
+            <div class="parallax">
+                <img id="sky" src="img/header-bg-sky.jpg" alt="ciel">
+            </div>
+            
+            <div class="parallax">
+                <img id="mountain" src="img/header-bg-2.png" alt="montagne">
+                
+            </div>
+            <div class="parallax">
+                <img id="logo-header" src="img/header-bg-logo.png" alt="logo iziski">
+            </div>
+        </div>
     </section>
+    <a href="#concept" class="fa fa-angle-down"></a>
     
     <header>
         <nav class="main-nav" id="nav">
@@ -42,11 +59,11 @@
             <iframe width="1280" height="720" src="https://www.youtube.com/embed/jyxktDt1s40" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="row">
-            <div class="col s6">
+            <div class="col s6" class="texts">
                 <h3>Un gain d'espace pour un gain de temps.</h3>
                 <p>Portez vos skis facilement dans un sac adapté que nous vous fournissons. Vous pourrez enfin grimper en station sans être encombré, puis les ranger chez vous sans vous soucier de la place qu'ils prennent !</p>
             </div>
-            <div class="col s6">
+            <div class="col s6" class="texts">
                 <h3>La qualité au service de l'innovation.</h3>
                 <p>Parce que l'innovation n'est pour nous pas une option, Iziski est une révolution pour le monde du ski. Et parce que le bien être des skieurs nous importe, nous misons sur une qualité sans faille.</p>
             </div>
@@ -55,30 +72,30 @@
             <h3>Ce qu'ils pensent de nous :</h3>
             <div class="col s4">
                 <div class="card ">
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum libero repudiandae ex dolorum dolorem sequi cumque beatae
                     </p>
                 </div>
             </div>
             <div class="col s4">
                 <div class="card ">
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum libero repudiandae ex dolorum dolorem sequi cumque beatae
                     </p>
                 </div>
             </div>
             <div class="col s4">
                 <div class="card ">
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
-                    <i class="small material-icons">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
+                    <i class="small material-icons stars">grade</i>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum libero repudiandae ex dolorum dolorem sequi cumque beatae
                     </p>
                 </div>
@@ -88,7 +105,7 @@
     
     <section id="artisanat" class="container">
         <h2>L'artisanat</h2>
-        <div class="row">
+        <div class="row texts">
             <div class="col s10 offset-s1">
                 <h3>Une qualité hors du commun.</h3>
                 Chaque paire est travaillée à la main dans la plus grande délicatesse par un artisan français. Profitez d'une parfaite alchimie entre praticité et confortabilité.
@@ -148,11 +165,11 @@
             </div>
         
             <div class="col s5">
-                <div>
+                <div class="texts">
                     <h3>Le renouveau du ski.</h3>
                     <p>Assurez vous d'être à la pointe de la technologie ! Nous vous garantissons la même sécurité qu'un ski classique. Le IZISKI se sépare entre les fixations à l'endroit où le pied vient se poser. La partie arrière s'emboîte dans la partie avant.</p>
 
-                    <a href="#">Acheter ></a>
+                    <a href="#" class="links">Acheter ></a>
                 </div>
 
                 <div>
@@ -167,7 +184,7 @@
         <h2>Iziski, c'est qui ?</h2>
         <div class="row">
             <div class="col s4">
-                <div class="row">
+                <div class="row people">
                     <img class="col s6" src="img/profile-1.jpg" alt="Un membre de l'équipe Iziski">
                     <img class="col s6" src="img/profile-2.jpeg" alt="Un membre de l'équipe Iziski">
                     <img class="col s6" src="img/profile-3.jpg" alt="Un membre de l'équipe Iziski">
@@ -178,11 +195,11 @@
             <div class="col s8">
                 <h3>Présentation de l'équipe</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem adipisci soluta provident, dignissimos consequatur, nisi? Temporibus maiores nulla laudantium officia dolor. Unde magnam corporis quam nulla, quas debitis tenetur.</p>
-                <p><Strong>Nous contacter : </Strong><span>iziski-contact@mail.com</span></p>
+                <p><strong>Nous contacter : </strong><span class="orange-links">iziski-contact@mail.com</span></p>
             </div>
         </div>
         
-        <h3>Évènements</h3>
+        <h3 id="events-title">Évènements</h3>
         
         <div class="event-carousel">
             <div class="card">
@@ -191,33 +208,33 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>18 Décembre</h4>
+                <h5>Venez à notre rencontre</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>1er Janvier</h4>
+                <h5>Festival Outdoor</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>19 Janvier</h4>
+                <h5>Fête de Pelleautier</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>5 Février</h4>
+                <h5>Trail en ski</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>7 Février</h4>
+                <h5>Skis en folie</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
             <div class="card">
-                <h4>17 Décembre</h4>
-                <h5>Foire du ski</h5>
+                <h4>10 Février</h4>
+                <h5>Les fanfarons de Réallon</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sed animi incidunt illo architecto.</p>
             </div>
         </div>
@@ -233,12 +250,13 @@
             
             <img class="col s12" src="img/banniere-kickstarter.png" alt="bannière kickstarter">
             <div class="col s8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis velit totam repellat, nostrum suscipit amet quam dolore perferendis quos, officia alias labore dolorum laboriosam. Veniam deleniti, error neque officia quisquam.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis velit totam repellat, nostrum suscipit amet quam dolore perferendis quos, officia alias labore dolorum laboriosam. Veniam deleniti, error neque officia quisquam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In perferendis fuga repellat harum vel, ipsam voluptas error praesentium minima nemo eligendi dolorem dignissimos, rerum saepe. Iure accusantium eveniet perferendis fugiat!</p>
                 
-                <a href="#">Soutenez nous sur <span>Kick<span>starter ></span></span></a>
+                <a href="#" class="soutient-link">Soutenez nous sur <span>Kick<span class="green-ks">starter ></span></span></a>
             </div>
             <div class="col s4">
-                <span>56%</span>
+                <span class="green-ks percent">56%</span>
             </div>
         </div>
     </section>
@@ -249,14 +267,16 @@
             <div class="row">
                 <div class="col s3">
                     <h4>Contact</h4>
+                    <hr>
                     <span>Du lundi au vendredi</span>
                     <span>Téléphone : 02.34.43.43.43</span>
-                    <span>Mail : iziski-contact@mail.com</span>
-                    <span><a href="#"><img id="logo-fb" src="img/facebook.png" alt="icon de facebook"></a></span>
-                    <span><a href="#"><img src="img/twitter.png" alt="icon de twiiter"></a></span>
+                    <span>Mail : <a href="#">iziski-contact@mail.com</a></span>
+                    <span class="inline-span"><a href="#"><img id="logo-fb" src="img/facebook.png" alt="icon de facebook"></a></span>
+                    <span class="inline-span"><a href="#"><img id="logo-twitter" src="img/twitter.png" alt="icon de twiiter"></a></span>
                 </div>
                 <div class="col s3">
                     <h4>Nous retrouver</h4>
+                    <hr>
                     <span>1 rue des Lilas</span>
                     <span>05000 GAP</span>
                     <span>bâtiment 5</span>
@@ -264,19 +284,22 @@
                 </div>
                 <div class="col s3">
                     <h4>Liens</h4>
-                    <a href="#">Portail IZISKI</a>
-                    <a href="#">Blog</a>
-                    <a href="#">F.A.Q</a>
+                    <hr>
+                    <a class="block-a" href="#">Portail IZISKI</a>
+                    <a class="block-a" href="#">Blog</a>
+                    <a class="block-a" href="#">F.A.Q</a>
                 </div>
                 <div class="col s3">
                     <h4>Iziski</h4>
+                    <hr>
                     <img width="100" src="img/iziski-blanc.png" alt="logo iziski">
-                    <a href="#">Mentions légales</a>
+                    <a class="block-a" href="#">Mentions légales</a>
                     <span>Copyright - 2016</span>
 
-                    <h4>Site réalisé par :</h4>
+                    <h4 id="croco-footer">Site réalisé par :</h4>
+                    <hr>
                     <span>Crocodile Bronzé Bros.</span>
-                    <a href="#">www.crocodile-bronze.fr</a>
+                    <a class="block-a" href="#">www.crocodile-bronze.fr</a>
                     <img width="100" src="img/crocodile-bronze-blanc.png" alt="Logo crocodile bronzé">
                 </div>
             </div>

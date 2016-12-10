@@ -6,6 +6,13 @@ $(document).ready(function(){
             scrollTop: $(ev.target.getAttribute("href")).offset().top - 50
         }, 500);
     });
+    
+    $('.fa-angle-down').on('click', function(ev){
+        $("section").css("display", "");
+        $('html, body').animate({
+            scrollTop: $(ev.target.getAttribute("href")).offset().top - 50
+        }, 500);
+    });
 
 
     $('.carousel-artisanat').slick({
@@ -13,7 +20,7 @@ $(document).ready(function(){
         slidesToScroll: 1,
         arrows: false,
         fade: true,
-        adaptiveHeight: true,
+//        adaptiveHeight: true,
         asNavFor: '.carousel-artisanat-preview'
     });
     $('.carousel-artisanat-preview').slick({
@@ -44,6 +51,9 @@ $(document).ready(function(){
             $('body').offset({ top: 0, left: 0 });
         }
     });
+    
+    
+    $('.parallax').parallax();
 
 });
 
@@ -98,31 +108,40 @@ function initMap() {
     var pos6 = {lat: 44.2669665, lng: 6.9769235};
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: pos1
+        zoom: 8,
+        center: pos1
     });
     var marker = new google.maps.Marker({
-      position: pos1,
-      map: map
+        position: pos1,
+        map: map
     });
     var marker = new google.maps.Marker({
-      position: pos2,
-      map: map
+        position: pos2,
+        map: map
     });
     var marker = new google.maps.Marker({
-      position: pos3,
-      map: map
+        position: pos3,
+        map: map
     });
     var marker = new google.maps.Marker({
-      position: pos4,
-      map: map
+        position: pos4,
+        map: map
     });
     var marker = new google.maps.Marker({
-      position: pos5,
-      map: map
+        position: pos5,
+        map: map
     });
     var marker = new google.maps.Marker({
-      position: pos6,
-      map: map
+        position: pos6,
+        map: map
     });
-  }
+
+    var mapFooter = new google.maps.Map(document.getElementById('map-footer'), {
+        zoom: 8,
+        center: pos1
+    });
+    var marker = new google.maps.Marker({
+        position: pos1,
+        map: mapFooter
+    });
+}
