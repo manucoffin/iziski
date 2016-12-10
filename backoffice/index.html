@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Iziski, plus d'innovation, autant de sensations !</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">        
+        
+        <!--Script pour le back-office-->
+        <link href="css/back-office.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        
+        <div class="corps">
+            
+            <header>
+                <div class="zoneLogo"><img src="img/logo_NB_2.png" class="logoIziski" alt="logo de Iziski"></div>
+                <div class="zoneProfil">
+                    <a class='dropdown-button btn-flat nomUser' href='#' data-activates='dropdown1'>John DOE <i class="material-icons imgUser">account_circle</i></a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">Mon profil</a></li>
+                        <li><a href="#!">Paramètres</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </header>
+            
+            <section>
+                
+                <!--Navigateur-->
+                <div class="navigateurBack">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s6"><a href="#menuEntreprise">Enterprise</a></li>
+                                <li class="tab col s6"><a class="active" href="#menuSite">Site</a></li>
+                            </ul>
+                        </div>
+                        <div id="menuEntreprise" class="col s12">
+                            <!--Menu entreprise-->
+                        </div>
+                        
+                        <div id="menuSite" class="col s12">
+                            <!--Menu site-->
+                        </div>
+                    </div>
+                </div>
+                
+                <!--zone avec les boîtes-->
+                <div class="zoneDesBoites">
+                    <div class="divTitreZone">
+                        <h4 id="titreZone" class="titreZone">Dashboard</h4>
+                    </div>
+                    <div class="insertZone row" id="insertZone">
+                        <div class="preloader-wrapper small active" id="loaderBoite">
+                            <div class="spinner-layer spinner-green-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!--Materialize-->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+        <!--Script pour le back-office-->
+        <script src="js/back-office.js"></script>
+        <script src="js/DomWork.js"></script>
+        <script src="js/chart-data.js"></script>
+    </body>
+</html>
