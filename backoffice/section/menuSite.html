@@ -1,20 +1,20 @@
 <!--<div class="flecheIndication"></div>-->
 <ul class="collapsible" data-collapsible="accordion">
     <li>
-        <div class="collapsible-header selectedMenu" id="menuDashboardSite" onclick="changeOnglet('dashBoardSite'); selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
+        <div class="collapsible-header selectedMenu" id="menuDashboardSite" onclick="changeOnglet('site_dashboard'); selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuBlog" onclick="changeOnglet('blog'); selectedMenu(this.id)"><i class="material-icons">chat_bubble</i>Blog</div>
+        <div class="collapsible-header" id="menuBlog" onclick="changeOnglet('site_blog'); selectedMenu(this.id)"><i class="material-icons">chat_bubble</i>Blog</div>
         <div class="collapsible-body">
             <a class="btn-flat" onclick="changeOnglet('listeBlog')">Liste des posts</a>
             <a class="btn-flat" onclick="changeOnglet('ajouterBlog')">Ajouter un post</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuEvenement" onclick="selectedMenu(this.id)"><i class="material-icons">today</i>Evénement</div>
+        <div class="collapsible-header" id="menuEvenement" onclick="changeOnglet('site_evenement'); selectedMenu(this.id)"><i class="material-icons">today</i>Evénement</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Lister les événements</a>
-            <a class="btn-flat">Créer un événement</a>
+            <a class="btn-flat" onclick="changeOnglet('site_evenement_liste');">Lister les événements</a>
+            <a class="btn-flat" onclick="changeOnglet('site_evenement_ajouter');">Créer un événement</a>
         </div>
     </li>
     <li>

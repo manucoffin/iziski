@@ -1,13 +1,15 @@
 var menuActif = '',
     tableDesTitre = {
-        dashBoardSite : 'Dashboard',
-        blog : 'Blog',
-        listeBlog : 'Blog - Liste des posts',
-        ajouterBlog : 'Blog - Ajouter un post',
-        evenement : 'Événement',
-        statistiques : 'Statistiques',
-        utilisateurs : 'Utilisateurs',
-        shop : 'Shop'
+        site_dashboard : 'Dashboard',
+        site_blog : 'Blog',
+        site_blog_liste : 'Blog - Liste des posts',
+        site_blog_ajouter : 'Blog - Ajouter un post',
+        site_evenement : 'Événement',
+        site_evenement_liste : 'Événement - liste',
+        site_evenement_ajouter : 'Événement - ajouter',
+        site_statistiques : 'Statistiques',
+        site_utilisateurs : 'Utilisateurs',
+        site_shop : 'Shop'
     };
 
 window.onload = function(){
@@ -16,7 +18,7 @@ window.onload = function(){
     setTimeout(function(){
         
         //ouvre le dashBoard de site
-        changeOnglet('dashBoardSite');
+        changeOnglet('site_dashboard');
         
         //initialise l'ouverture des menus
         $(document).ready(function(){ $('.collapsible').collapsible();});
@@ -50,38 +52,68 @@ function changeOnglet(cible){
 
         insertZone.innerHTML = '';
 
-        //selectionne les vus à montrer
-        if(cible == 'dashBoardSite'){
+        //SITE : DASHBOARD
+        if(cible == 'site_dashboard'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
-                    {type : 'div', attributes : {class : 'col s9'}, contents : structureBoite('equalizer', 'Vue de l\'activité', 'boiteAjax/vuActiviteSite.html', creatDashSiteData)},
-                    {type : 'div', attributes : {class : 'col s3'}, contents : structureBoite('fast_forward', 'Actions rapides', 'boiteAjax/ActionRapideSite.html')}
+                    {type : 'div', attributes : {class : 'col s9'}, contents : structureBoite('equalizer', 'Vue de l\'activité', 'boiteAjax/site_statistiques_vente_visite.html', creatDashSiteData)},
+                    {type : 'div', attributes : {class : 'col s3'}, contents : structureBoite('fast_forward', 'Actions rapides', 'boiteAjax/site_action_rapide.html')}
                 ]},
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
-                    {type : 'div', attributes : {class : 'col s5'}, contents : structureBoite('mode_edit', 'Activitées éditorial', 'boiteAjax/ActiviteEditorial.html')},
-                    {type : 'div', attributes : {class : 'col s7'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/DernierAvisProduits.html')}
+                    {type : 'div', attributes : {class : 'col s5'}, contents : structureBoite('mode_edit', 'Activitées éditorial', 'boiteAjax/site_activite_editorial.html')},
+                    {type : 'div', attributes : {class : 'col s7'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/site_produits_dernier_avis.html')}
                 ]}
             ]);
         }
-        if(cible == 'blog'){
+        
+        
+        //SITE : BLOG
+        if(cible == 'site_blog'){
              ZoneBoite.insertDomNode([
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/lesBlogs.html')},
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/ajouterPost.html', function(){
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/site_blog_liste.html')},
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_liste.html', function(){
                     $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
                     $(document).ready(function() {$('select').material_select();});
                 })}
             ]);
         }
         
-        if(cible == 'listeBlog'){
+        if(cible == 'site_blog_liste'){
              ZoneBoite.insertDomNode([
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/lesBlogs.html')}
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/site_blog_liste.html')}
             ]);
         }
         
-        if(cible == 'ajouterBlog'){
+        if(cible == 'site_blog_ajouter'){
              ZoneBoite.insertDomNode([
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/ajouterPost.html', function(){
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_ajouter.html', function(){
+                    $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
+                    $(document).ready(function() {$('select').material_select();});
+                })}
+            ]);
+        }
+        
+        
+        //SITE : EVENEMENT
+        if(cible == 'site_evenement'){
+             ZoneBoite.insertDomNode([
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('today', 'Liste des événements', 'boiteAjax/site_evenement_liste.html')},
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('today', 'Ajouter un événement', 'boiteAjax/site_evenement_ajouter.html', function(){
+                    $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
+                    $(document).ready(function() {$('select').material_select();});
+                })}
+            ]);
+        }
+        
+        if(cible == 'site_evenement_liste'){
+             ZoneBoite.insertDomNode([
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('today', 'Liste des événements', 'boiteAjax/site_evenement_liste.html')},
+            ]);
+        }
+        
+        if(cible == 'site_evenement_ajouter'){
+             ZoneBoite.insertDomNode([
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('today', 'Ajouter un événement', 'boiteAjax/site_evenement_ajouter.html', function(){
                     $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
                     $(document).ready(function() {$('select').material_select();});
                 })}
