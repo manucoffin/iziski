@@ -214,7 +214,9 @@ h3{
     background: url('../img/pre-footer.png');
     background-size: contain;
     background-repeat: repeat-x;
+    background-position: bottom;
 }
+
 
 footer{
     color: white;
@@ -352,4 +354,31 @@ h2{
     font-size: 3em;
     font-family: lato-black;
     margin-top: 5vh;
+}
+
+#mobile-nav{
+    display: none;
+}
+
+@media (max-width:767px){
+    footer{
+        text-align: center;
+    }
+    
+    #mobile-nav{
+        display: block;
+        z-index: 1000;
+/*        width: 50px;*/
+/*        right: 0;*/
+        background-color: rgb(239,239,239);
+        color: black;
+    }
+    
+    #mobile-nav .button-collapse{
+        color: rgb(77,77,77);
+    }
+    
+    .main-nav{
+        display: none;
+    }
 }
