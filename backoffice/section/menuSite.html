@@ -6,8 +6,8 @@
     <li>
         <div class="collapsible-header" id="menuBlog" onclick="changeOnglet('site_blog'); selectedMenu(this.id)"><i class="material-icons">chat_bubble</i>Blog</div>
         <div class="collapsible-body">
-            <a class="btn-flat" onclick="changeOnglet('listeBlog')">Liste des posts</a>
-            <a class="btn-flat" onclick="changeOnglet('ajouterBlog')">Ajouter un post</a>
+            <a class="btn-flat" onclick="changeOnglet('site_blog_liste')">Liste des posts</a>
+            <a class="btn-flat" onclick="changeOnglet('site_blog_ajouter')">Ajouter un post</a>
         </div>
     </li>
     <li>
@@ -18,11 +18,15 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuStatistique" onclick="selectedMenu(this.id)"><i class="material-icons">equalizer</i>Statistiques</div>
+        <div class="collapsible-header" id="menuStatistique" onclick="changeOnglet('site_statistiques'); selectedMenu(this.id)"><i class="material-icons">equalizer</i>Statistiques</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Vente sur 30 jours</a>
-            <a class="btn-flat">Visite sur 30 jours</a>
-            <a class="btn-flat">Navigateur</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_vente_30j');">Vente sur 30 jours</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_visite_30j');">Visite sur 30 jours</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_navigateur');">Navigateur</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_pages');">Pages</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_carte');">Carte</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_seo');">SEO</a>
+            <a class="btn-flat" onclick="changeOnglet('site_statistiques_support');">Type ordinateur</a>
         </div>
     </li>
     <li>

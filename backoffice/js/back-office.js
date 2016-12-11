@@ -2,12 +2,20 @@ var menuActif = '',
     tableDesTitre = {
         site_dashboard : 'Dashboard',
         site_blog : 'Blog',
-        site_blog_liste : 'Blog - Liste des posts',
-        site_blog_ajouter : 'Blog - Ajouter un post',
+        site_blog_liste : 'Blog : Liste des posts',
+        site_blog_ajouter : 'Blog : Ajouter un post',
         site_evenement : 'Événement',
-        site_evenement_liste : 'Événement - liste',
-        site_evenement_ajouter : 'Événement - ajouter',
+        site_evenement_liste : 'Événement : Liste',
+        site_evenement_ajouter : 'Événement : Ajouter',
         site_statistiques : 'Statistiques',
+        site_statistiques_vente_visite : 'Statistiques : Vente / Visite',
+        site_statistiques_vente_30j : 'Statistiques : Vente sur la période',
+        site_statistiques_visite_30j : 'Statistiques : Visite sur la période',
+        site_statistiques_navigateur : 'Statistiques : Navigateur',
+        site_statistiques_pages : 'Statistiques : Pages',
+        site_statistiques_carte : 'Statistiques : Carte',
+        site_statistiques_seo : 'Statistiques : Seo',
+        site_statistiques_support : 'Statistiques : Matériels utilisés',
         site_utilisateurs : 'Utilisateurs',
         site_shop : 'Shop'
     };
@@ -62,6 +70,15 @@ function changeOnglet(cible){
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
                     {type : 'div', attributes : {class : 'col s5'}, contents : structureBoite('mode_edit', 'Activitées éditorial', 'boiteAjax/site_activite_editorial.html')},
                     {type : 'div', attributes : {class : 'col s7'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/site_produits_dernier_avis.html')}
+                ]},
+                {type : 'div', attributes : {class : 'row'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : [
+                        {type : 'p', styles : {textAlign : 'right'}, contents : [
+                            {type : 'a', attributes : {class : 'btn-floating btn-large waves-effect waves-light', id: 'ajouterBoite'}, styles : {backgroundColor : 'rgb(254, 126, 41)'}, contents : [
+                                {type : 'i', attributes : {class : 'material-icons'}, contents : 'add'}
+                            ]}
+                        ]}
+                    ]}
                 ]}
             ]);
         }
@@ -119,8 +136,115 @@ function changeOnglet(cible){
                 })}
             ]);
         }
+        
+        //STATISTIQUES
+        if(cible == 'site_statistiques'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Localisation', 'boiteAjax/site_statistiques_map.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Pages visitées', 'boiteAjax/site_statistiques_pages.html', creatChartPage)},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Navigateur (en %)', 'boiteAjax/site_statistiques_navigateur.html', creatChartNavigateur)}
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s6'}, contents : structureBoite('equalizer', 'Ventes', 'boiteAjax/site_statistiques_vente_30j.html', creatChartVente)},
+                    {type : 'div', attributes : {class : 'col s6'}, contents : structureBoite('equalizer', 'Visites', 'boiteAjax/site_statistiques_visite_30j.html', creatChartVisite)},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s8'}, contents : structureBoite('equalizer', 'Moteur de recherche', 'boiteAjax/site_statistiques_seo.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Matériels utilisés (en %)', 'boiteAjax/site_statistiques_support.html', creatChartSupport)},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_vente_30j'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Ventes sur la période', 'boiteAjax/site_statistiques_vente_30j.html', creatChartVente)},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_visite_30j'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Visites sur la période', 'boiteAjax/site_statistiques_visite_30j.html', creatChartVisite)},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_navigateur'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Navigateur', 'boiteAjax/site_statistiques_navigateur.html', creatChartNavigateur)},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_seo'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Moteur de recherche', 'boiteAjax/site_statistiques_seo.html')},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_pages'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Page visitées', 'boiteAjax/site_statistiques_pages.html', creatChartPage)},
+                    {type : 'div', attributes : {class : 'col s4'}},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_support'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('equalizer', 'Matériels utilisés', 'boiteAjax/site_statistiques_support.html', creatChartSupport)},
+                    {type : 'div', attributes : {class : 'col s4'}},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_statistiques_carte'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('equalizer', 'Réglage de la période', 'boiteAjax/site_statistiques_reglages.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s2'}},
+                    {type : 'div', attributes : {class : 'col s6'}, contents : structureBoite('equalizer', 'Localisation', 'boiteAjax/site_statistiques_map.html')},
+                    {type : 'div', attributes : {class : 'col s2'}},
+                ]}
+            ]);
+        }
     }
 }
+
+
 
 function structureBoite(icone, titre, path, onload = null){
     return [
