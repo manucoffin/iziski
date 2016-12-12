@@ -91,7 +91,7 @@ function changeOnglet(cible){
         if(cible == 'site_blog'){
              ZoneBoite.insertDomNode([
                 {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/site_blog_liste.html')},
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_liste.html', function(){
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_ajouter.html', function(){
                     $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
                     $(document).ready(function() {$('select').material_select();});
                 })}
