@@ -17,7 +17,10 @@ var menuActif = '',
         site_statistiques_seo : 'Statistiques : Seo',
         site_statistiques_support : 'Statistiques : Matériels utilisés',
         site_utilisateurs : 'Utilisateurs',
-        site_shop : 'Shop'
+        site_produit : 'Produits',
+        site_produit_liste : 'Produits : liste',
+        site_produit_ajouter : 'Produits : Ajouter',
+        site_produit_avis : 'Produits : Avis'
     };
 
 window.onload = function(){

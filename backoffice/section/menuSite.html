@@ -39,12 +39,12 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuShop" onclick="selectedMenu(this.id)"><i class="material-icons">shopping_cart</i>Shop</div>
+        <div class="collapsible-header" id="menuShop" onclick="changeOnglet('site_produit'); selectedMenu(this.id)"><i class="material-icons">shopping_cart</i>Shop</div>
         <div class="collapsible-body">
             <ul>
-                <a class="btn-flat">Liste des produits</a>
-                <a class="btn-flat">Ajouter un produits</a>
-                <a class="btn-flat">Avis</a>
+                <a class="btn-flat" onclick="changeOnglet('site_produit_liste');">Liste des produits</a>
+                <a class="btn-flat" onclick="changeOnglet('site_produit_ajouter');">Ajouter un produits</a>
+                <a class="btn-flat" onclick="changeOnglet('site_produit_avis');">Avis</a>
             </ul>
         </div>
     </li>

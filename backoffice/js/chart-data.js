@@ -150,7 +150,7 @@ function creatChartSupport(){
 var chartSupport = {
     labels: [
         "Desktop",
-        "Mobil",
+        "Mobile",
         "Tablette"
     ],
     datasets: [
