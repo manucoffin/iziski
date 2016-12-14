@@ -244,6 +244,57 @@ function changeOnglet(cible){
                 ]}
             ]);
         }
+        
+        
+        //PRODUITS
+        if(cible == 'site_produit'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Grand Ski', 'boiteAjax/site_produits_ski_grand.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Petit Ski', 'boiteAjax/site_produits_ski_petit.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Chaussure', 'boiteAjax/site_produits_chaussure.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Hoodie', 'boiteAjax/site_produits_vetement.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Grand Ski', 'boiteAjax/site_produits_ski_grand.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Petit Ski', 'boiteAjax/site_produits_ski_petit.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Chaussure', 'boiteAjax/site_produits_chaussure.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Hoodie', 'boiteAjax/site_produits_vetement.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_avis'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Ajouter un produits', 'boiteAjax/site_produits_ajouter.html')},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_avis'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Filtre', 'boiteAjax/site_produits_filtre.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/site_produits_dernier_avis.html')},
+                ]}
+            ]);
+        }
     }
 }
 
