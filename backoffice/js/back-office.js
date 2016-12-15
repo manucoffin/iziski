@@ -21,11 +21,22 @@ var menuActif = '',
         site_produit_liste : 'Produits : liste',
         site_produit_ajouter : 'Produits : Ajouter',
         site_produit_avis : 'Produits : Avis',
+        entreprise_dashboard : 'Entreprise : Dashboard',
         entreprise_flux : 'Flux d\'entreprise',
-        entreprise_stock_analyse : 'Stock : Analyse',
+        entreprise_flux_poster : 'Poster dans le flux',
+        entreprise_commande : 'Commande',
+        entreprise_commande_client : 'Commande : Client',
         entreprise_commande_liste : 'Commande : Liste',
         entreprise_commande_ajouter : 'Commande : liste',
-        entreprise_artisant_liste : 'Artisant : Liste'
+        entreprise_sav_reclamation : 'SAV : Réclamation',
+        entreprise_sav_historique : 'SAV : Historique',
+        entreprise_sav_repondre : 'SAV : Répondre',
+        entreprise_stock : 'Stock',
+        entreprise_stock_liste : 'Stock : Liste',
+        entreprise_stock_analyse : 'Stock : Analyse',
+        entreprise_artisant : 'Artisant',
+        entreprise_artisant_liste : 'Artisant : Liste',
+        entreprise_artisant_ajouter : 'Artisant : Ajouter'
     };
 
 window.onload = function(){
@@ -301,14 +312,86 @@ function changeOnglet(cible){
             ]);
         }
         
+        //ENTREPRISE : SAV
+        if(cible == 'entreprise_sav_reclamation'){
+            ZoneBoite.insertDomNode([
+                {type : 'div', contents : [
+                    {ajax : {path : 'boiteAjax/entreprise_sav.html'}}
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_sav_historique'){
+            ZoneBoite.insertDomNode([
+                {type : 'div', contents : [
+                    {ajax : {path : 'boiteAjax/entreprise_sav_historique.html'}}
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_sav_repondre'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('question_answer', 'Répondre', 'boiteAjax/entreprise_sav_repondre.html')},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE : DASHBOARD
+        if(cible == 'entreprise_dashboard'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s8'}, contents : structureBoite('shopping_cart', 'Commandes clients', 'boiteAjax/entreprise_commande_client.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('fast_forward', 'Action rapides', 'boiteAjax/entreprise_action_rapide.html')},
+                ]},
+                {type : 'div', contents : [
+                    {ajax : {path : 'boiteAjax/entreprise_flux.html'}}
+                ]},
+                {type : 'div', attributes : {class : 'row'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : [
+                        {type : 'p', styles : {textAlign : 'right'}, contents : [
+                            {type : 'a', attributes : {class : 'btn-floating btn-large waves-effect waves-light', id: 'ajouterBoite'}, styles : {backgroundColor : 'rgb(254, 126, 41)'}, contents : [
+                                {type : 'i', attributes : {class : 'material-icons'}, contents : 'add'}
+                            ]}
+                        ]}
+                    ]}
+                ]}
+            ]);
+        }
+        
+        
         //ENTREPRISE : FLUX
         if(cible == 'entreprise_flux'){
             ZoneBoite.insertDomNode([
-                {ajax : {path : 'boiteAjax/entreprise_flux.html'}}
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Filtre', 'boiteAjax/entreprise_flux_filtre.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Poster', 'boiteAjax/entreprise_flux_poster.html')},
+                ]},
+                {type : 'div', contents : [
+                    {ajax : {path : 'boiteAjax/entreprise_flux.html'}}
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_flux_poster'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Poster', 'boiteAjax/entreprise_flux_poster.html')},
+                ]}
             ]);
         }
         
         //ENTREPRISE : STOCK : ANALYSE
+        if(cible == 'entreprise_stock'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Stock', 'boiteAjax/entreprise_stock_liste.html')},
+                ]}
+            ]);
+        }
+        
         if(cible == 'entreprise_stock_analyse'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
@@ -316,6 +399,14 @@ function changeOnglet(cible){
                 ]},
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
                     {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Stock Hoodie', 'boiteAjax/entreprise_stock_analyse.html', creatChartHoodie)},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_stock_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Stock', 'boiteAjax/entreprise_stock_liste.html')},
                 ]}
             ]);
         }
@@ -337,7 +428,40 @@ function changeOnglet(cible){
             ]);
         }
         
+        if(cible == 'entreprise_commande_client'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Liste des commandes clients', 'boiteAjax/entreprise_commande_client.html')},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_commande'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Liste des commandes externe', 'boiteAjax/entreprise_commande_client.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Liste des commandes internes', 'boiteAjax/entreprise_commande_liste.html')},
+                ]},
+                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Commander', 'boiteAjax/entreprise_commande_ajouter.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]}
+            ]);
+        }
+        
         //ENTREPRISE : ARTISANT : LISTE
+        if(cible == 'entreprise_artisant'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Liste des artisants', 'boiteAjax/entreprise_artisant_liste.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Ajouter un artisant', 'boiteAjax/entreprise_artisant_ajouter.html')},
+                ]}
+            ]);
+        }
+        
         if(cible == 'entreprise_artisant_liste'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
@@ -345,6 +469,14 @@ function changeOnglet(cible){
                 ]},
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
                     {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Liste des artisants', 'boiteAjax/entreprise_artisant_liste.html')},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_artisant_ajouter'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Ajouter un artisant', 'boiteAjax/entreprise_artisant_ajouter.html')},
                 ]}
             ]);
         }

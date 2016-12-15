@@ -1,43 +1,39 @@
 
 <ul class="collapsible" data-collapsible="accordion">
     <li>
-        <div class="collapsible-header" id="menuDashboardEntreprise" onclick="selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
+        <div class="collapsible-header" id="menuDashboardEntreprise" onclick="changeOnglet('entreprise_dashboard'); selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
         <div class="collapsible-header" id="menuFlux" onclick="changeOnglet('entreprise_flux'); selectedMenu(this.id)"><i class="material-icons">rss_feed</i>Flux</div>
-        <div class="collapsible-body">
-            <a class="btn-flat" onclick="changeOnglet('entreprise_flux');">Flux</a>
-            <a class="btn-flat">Paramètres</a>
-        </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuCommande" onclick="selectedMenu(this.id)"><i class="material-icons">list</i>Commandes</div>
+        <div class="collapsible-header" id="menuCommande" onclick="changeOnglet('entreprise_commande'); selectedMenu(this.id)"><i class="material-icons">list</i>Commandes</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Commandes clients</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_commande_client')">Commandes clients</a>
             <a class="btn-flat" onclick="changeOnglet('entreprise_commande_liste')">Commandes Iziski</a>
             <a class="btn-flat" onclick="changeOnglet('entreprise_commande_ajouter')">Créer une commade</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuArticle" onclick="selectedMenu(this.id)"><i class="material-icons">question_answer</i>SAV</div>
+        <div class="collapsible-header" id="menuSav" onclick="changeOnglet('entreprise_sav_reclamation'); selectedMenu(this.id)"><i class="material-icons">question_answer</i>SAV</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Réclamation</a>
-            <a class="btn-flat">Historique</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_sav_reclamation')">Réclamation</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_sav_historique')">Historique</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuStock" onclick="selectedMenu(this.id)"><i class="material-icons">storage</i>Stock</div>
+        <div class="collapsible-header" id="menuStock" onclick="changeOnglet('entreprise_stock'); selectedMenu(this.id)"><i class="material-icons">storage</i>Stock</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Stock</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_stock_liste')">Stock</a>
             <a class="btn-flat" onclick="changeOnglet('entreprise_stock_analyse')">Analyse des stocks</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">accessibility</i>Artisants</div>
+        <div class="collapsible-header" id="menuArtisant" onclick="changeOnglet('entreprise_artisant'); selectedMenu(this.id)"><i class="material-icons">accessibility</i>Artisants</div>
         <div class="collapsible-body">
             <ul>
                 <a class="btn-flat" onclick="changeOnglet('entreprise_artisant_liste')">Liste des artisants</a>
-                <a class="btn-flat">Ajouter un artisant</a>
+                <a class="btn-flat" onclick="changeOnglet('entreprise_artisant_ajouter')">Ajouter un artisant</a>
             </ul>
         </div>
     </li>
