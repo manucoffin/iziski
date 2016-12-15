@@ -101,7 +101,7 @@
     }
 }
 
-@media (max-width: 792px) and (min-width: 600px){
+@media (max-width: 792px) and (min-width: 775px){
     .gauche{
         position: relative;
         top: -100px;
@@ -110,8 +110,9 @@
 
 @media (max-width: 775px) and (min-width: 600px){
     .gauche{
-        position: relative;
-        top: -120px;
+        position: absolute;
+        top: 0px;
+        right: 0px !important;
     }
 }
 
@@ -126,9 +127,12 @@
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-
+.article{
+    border: 2px solid transparent !important;
+}
 
 .article:hover{
+    box-sizing: border-box;
     border: 2px solid #00b3ee !important;
 }
 
@@ -332,11 +336,19 @@ footer hr{
 }
 
 .paddTop{
-    padding-top: 40px;
+    padding-top: 40px !important;
+}
+
+.paddTopP{
+    padding-top: 30px;
 }
 
 .paddBot{
     padding-bottom: 40px;
+}
+
+.paddBotP{
+    padding-bottom: 20px;
 }
 
 a{
