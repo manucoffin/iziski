@@ -23,7 +23,8 @@ var menuActif = '',
         site_produit_avis : 'Produits : Avis',
         entreprise_flux : 'Flux d\'entreprise',
         entreprise_stock_analyse : 'Stock : Analyse',
-        entreprise_commande_ajouter : 'Produit : Commander',
+        entreprise_commande_liste : 'Commande : Liste',
+        entreprise_commande_ajouter : 'Commande : liste',
         entreprise_artisant_liste : 'Artisant : Liste'
     };
 
@@ -324,6 +325,14 @@ function changeOnglet(cible){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
                     {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Commander', 'boiteAjax/entreprise_commande_ajouter.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_commande_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Liste des commandes', 'boiteAjax/entreprise_commande_liste.html')},
                 ]}
             ]);
         }

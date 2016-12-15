@@ -4,7 +4,7 @@
         <div class="collapsible-header" id="menuDashboardEntreprise" onclick="selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuDashboardArtisant" onclick="changeOnglet('entreprise_flux'); selectedMenu(this.id)"><i class="material-icons">rss_feed</i>Flux</div>
+        <div class="collapsible-header" id="menuFlux" onclick="changeOnglet('entreprise_flux'); selectedMenu(this.id)"><i class="material-icons">rss_feed</i>Flux</div>
         <div class="collapsible-body">
             <a class="btn-flat" onclick="changeOnglet('entreprise_flux');">Flux</a>
             <a class="btn-flat">Paramètres</a>
@@ -14,7 +14,7 @@
         <div class="collapsible-header" id="menuCommande" onclick="selectedMenu(this.id)"><i class="material-icons">list</i>Commandes</div>
         <div class="collapsible-body">
             <a class="btn-flat">Commandes clients</a>
-            <a class="btn-flat">Commandes Iziski</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_commande_liste')">Commandes Iziski</a>
             <a class="btn-flat" onclick="changeOnglet('entreprise_commande_ajouter')">Créer une commade</a>
         </div>
     </li>
@@ -33,7 +33,7 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuDashboardArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">accessibility</i>Artisants</div>
+        <div class="collapsible-header" id="menuArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">accessibility</i>Artisants</div>
         <div class="collapsible-body">
             <ul>
                 <a class="btn-flat" onclick="changeOnglet('entreprise_artisant_liste')">Liste des artisants</a>
@@ -42,7 +42,7 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuDashboardArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">local_shipping</i>Transports</div>
+        <div class="collapsible-header" id="menuTransport" onclick="selectedMenu(this.id)"><i class="material-icons">local_shipping</i>Transports</div>
         <div class="collapsible-body">
             <ul>
                 <a class="btn-flat">Liste des transporteurs</a>
