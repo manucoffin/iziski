@@ -20,7 +20,12 @@ var menuActif = '',
         site_produit : 'Produits',
         site_produit_liste : 'Produits : liste',
         site_produit_ajouter : 'Produits : Ajouter',
-        site_produit_avis : 'Produits : Avis'
+        site_produit_avis : 'Produits : Avis',
+        entreprise_flux : 'Flux d\'entreprise',
+        entreprise_stock_analyse : 'Stock : Analyse',
+        entreprise_commande_liste : 'Commande : Liste',
+        entreprise_commande_ajouter : 'Commande : liste',
+        entreprise_artisant_liste : 'Artisant : Liste'
     };
 
 window.onload = function(){
@@ -91,7 +96,7 @@ function changeOnglet(cible){
         if(cible == 'site_blog'){
              ZoneBoite.insertDomNode([
                 {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Liste des posts dans le blog', 'boiteAjax/site_blog_liste.html')},
-                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_liste.html', function(){
+                {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('message', 'Ajouter un post', 'boiteAjax/site_blog_ajouter.html', function(){
                     $('.datepicker').pickadate({selectMonths: true, selectYears: 15});
                     $(document).ready(function() {$('select').material_select();});
                 })}
@@ -140,7 +145,7 @@ function changeOnglet(cible){
             ]);
         }
         
-        //STATISTIQUES
+        //SITE : STATISTIQUES
         if(cible == 'site_statistiques'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
@@ -244,6 +249,106 @@ function changeOnglet(cible){
                 ]}
             ]);
         }
+        
+        
+        //SITE : PRODUITS
+        if(cible == 'site_produit'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Grand Ski', 'boiteAjax/site_produits_ski_grand.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Petit Ski', 'boiteAjax/site_produits_ski_petit.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Chaussure', 'boiteAjax/site_produits_chaussure.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Hoodie', 'boiteAjax/site_produits_vetement.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Grand Ski', 'boiteAjax/site_produits_ski_grand.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Petit Ski', 'boiteAjax/site_produits_ski_petit.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Chaussure', 'boiteAjax/site_produits_chaussure.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s4'}, contents : structureBoite('shopping_cart', 'Hoodie', 'boiteAjax/site_produits_vetement.html')},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                    {type : 'div', attributes : {class : 'col s4'}, contents : ''},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_ajouter'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Ajouter un produits', 'boiteAjax/site_produits_ajouter.html')},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'site_produit_avis'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Filtre', 'boiteAjax/site_produits_filtre.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('star', 'Derniers avis sur les produits', 'boiteAjax/site_produits_dernier_avis.html')},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE : FLUX
+        if(cible == 'entreprise_flux'){
+            ZoneBoite.insertDomNode([
+                {ajax : {path : 'boiteAjax/entreprise_flux.html'}}
+            ]);
+        }
+        
+        //ENTREPRISE : STOCK : ANALYSE
+        if(cible == 'entreprise_stock_analyse'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Filtre', 'boiteAjax/entreprise_stock_filtre.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Stock Hoodie', 'boiteAjax/entreprise_stock_analyse.html', creatChartHoodie)},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE COMMANDER
+        if(cible == 'entreprise_commande_ajouter'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Commander', 'boiteAjax/entreprise_commande_ajouter.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]}
+            ]);
+        }
+        
+        if(cible == 'entreprise_commande_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Liste des commandes', 'boiteAjax/entreprise_commande_liste.html')},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE : ARTISANT : LISTE
+        if(cible == 'entreprise_artisant_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Filtre', 'boiteAjax/site_produits_filtre.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Liste des artisants', 'boiteAjax/entreprise_artisant_liste.html')},
+                ]}
+            ]);
+        }
+        
     }
 }
 
