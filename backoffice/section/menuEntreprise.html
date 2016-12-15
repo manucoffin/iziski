@@ -4,9 +4,9 @@
         <div class="collapsible-header" id="menuDashboardEntreprise" onclick="selectedMenu(this.id)"><i class="material-icons">dashboard</i>Dashboard</div>
     </li>
     <li>
-        <div class="collapsible-header" id="menuDashboardArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">rss_feed</i>Flux</div>
+        <div class="collapsible-header" id="menuDashboardArtisant" onclick="changeOnglet('entreprise_flux'); selectedMenu(this.id)"><i class="material-icons">rss_feed</i>Flux</div>
         <div class="collapsible-body">
-            <a class="btn-flat">Flux</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_flux');">Flux</a>
             <a class="btn-flat">Paramètres</a>
         </div>
     </li>
@@ -15,7 +15,7 @@
         <div class="collapsible-body">
             <a class="btn-flat">Commandes clients</a>
             <a class="btn-flat">Commandes Iziski</a>
-            <a class="btn-flat">Créer une commade</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_commande_ajouter')">Créer une commade</a>
         </div>
     </li>
     <li>
@@ -29,14 +29,14 @@
         <div class="collapsible-header" id="menuStock" onclick="selectedMenu(this.id)"><i class="material-icons">storage</i>Stock</div>
         <div class="collapsible-body">
             <a class="btn-flat">Stock</a>
-            <a class="btn-flat">Analyse des stocks</a>
+            <a class="btn-flat" onclick="changeOnglet('entreprise_stock_analyse')">Analyse des stocks</a>
         </div>
     </li>
     <li>
         <div class="collapsible-header" id="menuDashboardArtisant" onclick="selectedMenu(this.id)"><i class="material-icons">accessibility</i>Artisants</div>
         <div class="collapsible-body">
             <ul>
-                <a class="btn-flat">Liste des artisants</a>
+                <a class="btn-flat" onclick="changeOnglet('entreprise_artisant_liste')">Liste des artisants</a>
                 <a class="btn-flat">Ajouter un artisant</a>
             </ul>
         </div>

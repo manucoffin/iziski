@@ -258,3 +258,92 @@ var charteVente = {
         }
     ]
 };
+
+//GRAPHIQUE D'ANALYSE DE STOCK DES HOODIES
+function creatChartHoodie(){
+    
+    setTimeout(function(){
+        var ctx = byId("chartStockHoodie").getContext("2d");
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: charteAnalyseHoodie,
+            options: {responsive: true}
+        });
+    },300);
+}
+
+var charteAnalyseHoodie = {
+    labels: [
+        "01/12", "02/12", "03/12", "04/12", "05/12", "06/12", "07/12", "08/12", "09/12", "10/12", "11/12", "12/12", "13/12", "14/12",
+        "15/12", "16/12", "17/12", "18/12", "19/12", "20/12", "21/12", "22/12", "23/12", "24/12", "25/12", "26/12", "27/12", "28/12", "29/12", "30/12", "31/12","01/01"
+    ],
+    datasets: [
+        {
+            label: "Stock",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [31, 25, 22, 102, 99, 99, 98, 91, 87, 85, 80, 79, 78, 71, 60, 51, 40, 31, 22, 13, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            spanGaps: false,
+        },
+        {
+            label: "Niveau critique",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(255, 138, 138, 0.4)",
+            borderColor: "rgb(255, 138, 138)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(255, 138, 138,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(255, 138, 138, 1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
+            spanGaps: false,
+        },
+        {
+            label: "Aujourd'hui",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(255,127,42, 0.4)",
+            borderColor: "rgb(255,127,42)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(255,127,42,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 5,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(255,127,42, 1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+            spanGaps: false,
+        }
+    ]
+};

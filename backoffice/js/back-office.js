@@ -20,7 +20,11 @@ var menuActif = '',
         site_produit : 'Produits',
         site_produit_liste : 'Produits : liste',
         site_produit_ajouter : 'Produits : Ajouter',
-        site_produit_avis : 'Produits : Avis'
+        site_produit_avis : 'Produits : Avis',
+        entreprise_flux : 'Flux d\'entreprise',
+        entreprise_stock_analyse : 'Stock : Analyse',
+        entreprise_commande_ajouter : 'Produit : Commander',
+        entreprise_artisant_liste : 'Artisant : Liste'
     };
 
 window.onload = function(){
@@ -140,7 +144,7 @@ function changeOnglet(cible){
             ]);
         }
         
-        //STATISTIQUES
+        //SITE : STATISTIQUES
         if(cible == 'site_statistiques'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
@@ -246,7 +250,7 @@ function changeOnglet(cible){
         }
         
         
-        //PRODUITS
+        //SITE : PRODUITS
         if(cible == 'site_produit'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
@@ -277,7 +281,7 @@ function changeOnglet(cible){
             ]);
         }
         
-        if(cible == 'site_produit_avis'){
+        if(cible == 'site_produit_ajouter'){
             ZoneBoite.insertDomNode([
                 {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
                     {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Ajouter un produits', 'boiteAjax/site_produits_ajouter.html')},
@@ -295,6 +299,47 @@ function changeOnglet(cible){
                 ]}
             ]);
         }
+        
+        //ENTREPRISE : FLUX
+        if(cible == 'entreprise_flux'){
+            ZoneBoite.insertDomNode([
+                {ajax : {path : 'boiteAjax/entreprise_flux.html'}}
+            ]);
+        }
+        
+        //ENTREPRISE : STOCK : ANALYSE
+        if(cible == 'entreprise_stock_analyse'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Filtre', 'boiteAjax/entreprise_stock_filtre.html')},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('storage', 'Stock Hoodie', 'boiteAjax/entreprise_stock_analyse.html', creatChartHoodie)},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE COMMANDER
+        if(cible == 'entreprise_commande_ajouter'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('list', 'Commander', 'boiteAjax/entreprise_commande_ajouter.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]}
+            ]);
+        }
+        
+        //ENTREPRISE : ARTISANT : LISTE
+        if(cible == 'entreprise_artisant_liste'){
+            ZoneBoite.insertDomNode([
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('filter_list', 'Filtre', 'boiteAjax/site_produits_filtre.html', function(){$(document).ready(function() {$('select').material_select();});})},
+                ]},
+                {type : 'div' , attributes : {class : 'row stretchCol'}, contents : [
+                    {type : 'div', attributes : {class : 'col s12'}, contents : structureBoite('accessibility', 'Liste des artisants', 'boiteAjax/entreprise_artisant_liste.html')},
+                ]}
+            ]);
+        }
+        
     }
 }
 
