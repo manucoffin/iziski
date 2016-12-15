@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Boutique Iziski</title>
+    <link rel="icon" href="img/favicon.png">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
     <!--Let browser know website is optimized for mobile-->
     <link href="css/style.css" rel="stylesheet">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
@@ -18,12 +19,12 @@
     $(document).ready(function() {
             $("#premier").click(function () {
                 if($(window).width() > 600) {
-                    $("#premierarticle").toggle("slow", function () {
+                    $("#premierarticle").slideToggle("slow", function () {
                         // Animation complete.
                     });
                 }
                 else{
-                    $("#premierarticleResp").toggle("slow", function () {
+                    $("#premierarticleResp").slideToggle("slow", function () {
                         // Animation complete.
                     });
                 }
@@ -62,7 +63,7 @@
                 </div>
             </div>
             <div class="col s12 m2 pasAff"><p class="blanc paddTop"><a href="#">Connexion<i class="material-icons rotate-45">play_arrow</i></a></p></div>
-            <div class="col s12 m1 pasAff"><i class="material-icons paddTop"><a href="#">shopping_cart</a></i></div>
+            <div class="col s12 m1 pasAff gauche"><i class="material-icons paddTop"><a href="#">shopping_cart</a></i></div>
             <div id="recherche2" class="col s12 m7">
                 <div class="paddTop">
                     <input class="inputrecherche" type="text" placeholder="Recherche"><button type="submit" class="button butorange btn btn-default"><i class="material-icons">search</i></button>
@@ -75,8 +76,8 @@
 
 <div class="container">
     <div class="row paddTop paddBot">
-        <div class="col s12">
-            <ul class="tabs">
+        <div class="col s12 fond">
+            <ul class="tabs fond">
                 <li class="tab col s3 "><a class="active bleu" href="#tout">Tout</a></li>
                 <li class="tab col s3"><a class="bleu" href="#skis">Skis</a></li>
                 <li class="tab col s3"><a class="bleu" href="#accessoires">Accessoires</a></li>
@@ -257,46 +258,24 @@
 
 
             <div class="row">
-                <div id="deuxieme" class="col s12 m3">
+                <div id="cinquieme" class="col s12 m3">
                     <div class="card article center">
-                        <img class="articlePhoto" src="img/hoodie.jpg">
+                        <img class="articlePhoto" src="img/ski3.jpg">
                         <div class="padd paddBot">
-                            <p class="left">Hoodie Iziski</p>
+                            <p class="left">Ski grande taille</p>
                             <br>
-                            <p class="left orangeText">29 €</p>
+                            <p class="left orangeText">399 €</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="deuxieme" class="col s12 m3">
+                <div id="sixieme" class="col s12 m3">
                     <div class="card article center">
-                        <img class="articlePhoto" src="img/hoodie.jpg">
+                        <img class="articlePhoto" src="img/tasse.jpg">
                         <div class="padd paddBot">
-                            <p class="left">Hoodie Iziski</p>
+                            <p class="left">Mug Iziski</p>
                             <br>
-                            <p class="left orangeText">29 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="deuxieme" class="col s12 m3">
-                    <div class="card article center">
-                        <img class="articlePhoto" src="img/hoodie.jpg">
-                        <div class="padd paddBot">
-                            <p class="left">Hoodie Iziski</p>
-                            <br>
-                            <p class="left orangeText">29 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="deuxieme" class="col s12 m3">
-                    <div class="card article center">
-                        <img class="articlePhoto" src="img/hoodie.jpg">
-                        <div class="padd paddBot">
-                            <p class="left">Hoodie Iziski</p>
-                            <br>
-                            <p class="left orangeText">29 €</p>
+                            <p class="left orangeText">19 €</p>
                         </div>
                     </div>
                 </div>
@@ -304,10 +283,10 @@
         </div>
         <div id="skis" class="col s12">
             <div class="row paddTop">
-                <div class="col s12 m3">
-                    <div class="article center">
+                <div id="premier" class="col s12 m3">
+                    <div class="card article center">
                         <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
+                        <div class="padd paddBot">
                             <p class="left">Ski grande taille</p>
                             <br>
                             <p class="left orangeText">499 €</p>
@@ -315,69 +294,24 @@
                     </div>
                 </div>
 
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
+                <div id="troisieme" class="col s12 m3">
+                    <div class="card article center">
+                        <img class="articlePhoto" src="img/ski2.jpg">
+                        <div class="padd paddBot">
                             <p class="left">Ski grande taille</p>
                             <br>
-                            <p class="left orangeText">499 €</p>
+                            <p class="left orangeText">249 €</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
+                <div id="cinquieme" class="col s12 m3">
+                    <div class="card article center">
+                        <img class="articlePhoto" src="img/ski3.jpg">
+                        <div class="padd paddBot">
                             <p class="left">Ski grande taille</p>
                             <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
+                            <p class="left orangeText">399 €</p>
                         </div>
                     </div>
                 </div>
@@ -385,136 +319,13 @@
         </div>
         <div id="accessoires" class="col s12">
             <div class="row paddTop">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
+                <div id="quatrieme" class="col s12 m3">
+                    <div class="card article center">
+                        <img class="articlePhoto" src="img/chauss.jpg">
+                        <div class="padd paddBot">
+                            <p class="left">Bottes de ski</p>
                             <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
+                            <p class="left orangeText">99 €</p>
                         </div>
                     </div>
                 </div>
@@ -522,136 +333,24 @@
         </div>
         <div id="extras" class="col s12">
             <div class="row paddTop">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
+                <div id="sixieme" class="col s12 m3">
+                    <div class="card article center">
+                        <img class="articlePhoto" src="img/tasse.jpg">
+                        <div class="padd paddBot">
+                            <p class="left">Mug Iziski</p>
                             <br>
-                            <p class="left orangeText">499 €</p>
+                            <p class="left orangeText">19 €</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
+                <div id="deuxieme" class="col s12 m3">
+                    <div class="card article center">
+                        <img class="articlePhoto" src="img/hoodie.jpg">
+                        <div class="padd paddBot">
+                            <p class="left">Hoodie Iziski</p>
                             <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 m3">
-                    <div class="article center">
-                        <img class="articlePhoto" src="img/ski.jpg">
-                        <div class="padd">
-                            <p class="left">Ski grande taille</p>
-                            <br>
-                            <p class="left orangeText">499 €</p>
+                            <p class="left orangeText">29 €</p>
                         </div>
                     </div>
                 </div>
@@ -664,7 +363,7 @@
 <div class="pre-footer"></div>
 <footer>
     <div class="container">
-        <div class="row center">
+        <div class="row centrerResp">
             <div class="col s12 m3">
                 <h4>Contact</h4>
                 <hr>

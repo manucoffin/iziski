@@ -35,7 +35,14 @@
         display: none;
     }
 
-
+    .etendu1{
+        margin-left: 0rem !important;
+        border-top: 2px solid #00b3ee !important;
+        padding-left: 25px;
+        padding-right: 25px;
+        display: none;
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -43,7 +50,7 @@
         display: none;
     }
     .logo {
-        width: 100px !important;
+        width: 130px !important;
         height: 60px;
         background-repeat: no-repeat;
     }
@@ -52,8 +59,19 @@
         top: 200px;
     }
 
+    .centrerResp{
+        text-align: center;
+    }
+
     .pasAff{
         display: none;
+    }
+
+    .etendu1{
+        padding-left: 25px;
+        padding-right: 25px;
+        display: none;
+        width: 100%;
     }
 
     .inputrecherche{
@@ -67,6 +85,33 @@
 
     #connexion{
         vertical-align: top;
+    }
+}
+
+@media (max-width: 1000px) and (min-width: 600px){
+    #menuBan{
+        position: relative;
+        top: 300px;
+        left: 0px;
+    }
+    .logo {
+        width: 170px !important;
+        height: 75px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 792px) and (min-width: 600px){
+    .gauche{
+        position: relative;
+        top: -100px;
+    }
+}
+
+@media (max-width: 775px) and (min-width: 600px){
+    .gauche{
+        position: relative;
+        top: -120px;
     }
 }
 
@@ -125,8 +170,12 @@ p{
     margin-bottom: 0px;
 }
 
+.fond{
+    background-color: #F1F1F1;
+}
+
 .butorange{
-    border-radius: 0;
+    border-radius: 0px 5px 5px 0px;
     background: #FFA500;
     border-color: #FFA500;
     color: white;
@@ -169,12 +218,6 @@ p{
 
 #logo-fb{
     background-color: white;
-}
-
-.etendu1{
-    padding-left: 25px;
-    display: none;
-    width: 100%;
 }
 
 
