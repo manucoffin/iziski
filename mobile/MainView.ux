@@ -1,0 +1,471 @@
+<App Background="#333">
+	<Font File="Assets/Lato-Regular.ttf" ux:Global="Lato" />
+    <DockPanel>
+        <Fuse.iOS.StatusBarConfig Style="Light" />
+        <StatusBarBackground Dock="Top"/>
+        <BottomBarBackground Dock="Bottom"/>
+        <Text ux:Class="Titre" Font="Lato" FontSize="40" Color="#4d4d4d" Alignment="Center"/>
+        <Text ux:Class="Contenu" Font="Lato" FontSize="20" Color="#ffffff" />
+
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+
+			function endLoading(){
+				isLoading.value = false;
+			}
+
+			function reloadHandler(){
+				isLoading.value = true;
+				setTimeout(endLoading, 3000);
+			}
+
+			var isLoading = Observable(false);
+
+			module.exports = {
+				isLoading: isLoading,
+				reloadHandler: reloadHandler
+			};
+		</JavaScript>
+
+        <PageControl ux:Name="pages">
+            <Page ux:Name="page1" Background="#454545">            	
+
+				<Grid RowCount="4" ColumnCount="1">
+				    <Rectangle Width="94%" Height="86%" Fill="#eeeeee">
+				    	<Grid RowCount="2" ColumnCount="2">
+				    		<Image RowSpan="2" File="Assets/meteo.png" StretchDirection="DownOnly" />
+				    		<Titre Row="0" Column="1">Gap 5°C</Titre>
+				    		<Grid ColumnCount="5" RowCount="3">
+				    			<Text Row="0" Column="0">7h</Text>
+				    			<Image Row="1" Column="0" File="Assets/meteo-mini.png" StretchDirection="DownOnly" />
+				    			<Text Row="2" Column="0">3°C</Text>
+				    			<Text Row="0" Column="1">10h</Text>
+				    			<Image Row="1" Column="1" File="Assets/meteo-mini.png" StretchDirection="DownOnly" />
+				    			<Text Row="2" Column="1">7°C</Text>
+				    			<Text Row="0" Column="2">13h</Text>
+				    			<Image Row="1" Column="2" Margin="0,5,0,0" File="Assets/meteo-mini2.png" StretchDirection="DownOnly" />
+				    			<Text Row="2" Column="2">10°C</Text>
+				    			<Text Row="0" Column="3">16h</Text>
+				    			<Image Row="1" Column="3" Margin="0,5,0,0" File="Assets/meteo-mini2.png" StretchDirection="DownOnly" />
+				    			<Text Margin="5,0,0,0" Row="2" Column="3">9°C</Text>
+				    			<Text Row="0" Column="4">19h</Text>
+				    			<Image Row="1" Column="4" File="Assets/meteo-mini.png" StretchDirection="DownOnly" />
+				    			<Text Margin="5,0,0,0" Row="2" Column="4">4°C</Text>
+				    		</Grid>
+				    	</Grid>
+				    	
+				    	<DropShadow />
+				    </Rectangle>				    
+				    <Rectangle Width="94%" Height="86%" Fill="#eeeeee">
+				    	<Grid ColumnCount="2">
+				    		<Image Column="0" File="Assets/denivele.png" StretchDirection="DownOnly" />
+				    		<Titre Column="1">1922 m</Titre>
+				    	</Grid>
+				    	<DropShadow />				        
+				    </Rectangle>
+				    <Rectangle Width="94%" Height="86%" Fill="#eeeeee">
+				    	<Grid ColumnCount="2">
+				    		<Image Column="0" File="Assets/distance.png" StretchDirection="DownOnly" />
+				    		<Titre Column="1">12,6 Km</Titre>
+				    	</Grid>
+				    	<DropShadow />				        
+				    </Rectangle>
+				    <Rectangle Width="94%" Height="86%" Fill="#eeeeee">
+				    	<Grid ColumnCount="2">
+				    		<Image Column="0" File="Assets/altitude.png" StretchDirection="DownOnly" />
+				    		<Titre Column="1">3751 m</Titre>
+				    	</Grid>
+				    	<DropShadow />				        
+				    </Rectangle>				    
+				</Grid>
+
+                <!-- <Image File="Assets/fuse-logo.png" StretchDirection="DownOnly" /> -->
+                <ActivatingAnimation>
+                    <Scale Target="tabBarImage1" Factor="1.5" />
+                    <Change panel1.Color="#eeeeee" />
+                </ActivatingAnimation>
+            </Page>
+            <Page ux:Name="page2" Background="#454545">            	
+            	<Grid ColumnCount="1" Rows="4.5*,100,4*">
+					<Fuse.iOS.StatusBarConfig Style="Light" />
+
+					<Text ux:Class="DefaultText" Color="#fff" Font="Lato" />
+
+					<Grid Row="1" RowCount="1" Columns="Auto,Auto,1*" Color="#00000088">
+						<DefaultText Margin="20,0,0,20" Alignment="Bottom" FontSize="50">-2°C</DefaultText>
+						<Icon Margin="15,0,15,25" Alignment="Bottom" File="Assets/marker.png" Height="30" />
+						<WrapPanel Margin="0,0,0,20" Alignment="Bottom">
+							<DefaultText Value="Vars, " FontSize="30"/>
+							<DefaultText Value="05560 " FontSize="30"/>					
+						</WrapPanel>
+					</Grid>
+					<Image Row="0" RowSpan="2" File="Assets/parcours.png" StretchMode="UniformToFill" />
+					<DockPanel Row="2" Color="#eeeeee">
+						<Grid ColumnCount="6" RowCount="1" Dock="Top" Height="80">
+							<DefaultText ux:Class="StatText" Color="#1c1c1c" FontSize="14" Alignment="CenterLeft" />
+							<Icon ux:Class="StatIcon" Margin="6" Alignment="CenterRight" />
+
+							<Rectangle Alignment="Top" Height="1" Fill="#999b9b" Layer="Background" />
+
+							<StatIcon File="Assets/FlagIcon.png" />
+							<StatText>22 Km/h</StatText>
+							<StatIcon File="Assets/snowflake.png" />
+							<StatText>120 cm</StatText>
+							<StatIcon File="Assets/avalanche.png" />
+							<StatText>3/5</StatText>
+						</Grid>
+						<Grid RowCount="3" ColumnCount="5">
+							<Rectangle Alignment="Top" Height="1" Fill="#999b9b" Layer="Background" />
+							<DefaultText ux:Class="Weekday" Color="#939393" Alignment="Center" FontSize="14" />
+							<DefaultText ux:Class="Temperature" Color="#333333" Alignment="Center" FontSize="20" Margin="6,0,0,0" />
+							<Weekday>Dénivelé</Weekday>
+							<Weekday>Virages</Weekday>
+							<Weekday>Temps</Weekday>
+							<Weekday>Sauts</Weekday>					
+							<Weekday>Distance</Weekday>
+							<Temperature>253 m</Temperature>
+							<Temperature>35</Temperature>
+							<Temperature>45 min</Temperature>
+							<Temperature>4</Temperature>
+							<Temperature>784 m</Temperature>
+						</Grid>
+					</DockPanel>
+				</Grid>
+				<!-- <WrapPanel>
+					<Panel>
+						<Image Margin="0" File="Assets/parcours.png" StretchDirection="DownOnly" />
+						<DropShadow />
+					</Panel>
+					
+					<Rectangle Width="380" Margin="0,20,0,0">
+						<Grid ColumnCount="3">
+							<Image Column="0" Height="25" Margin="-100,0,0,0" File="Assets/marker.png" StretchDirection="DownOnly" />
+							<Contenu Column="1" Margin="-100,10,0,0">Vars - France</Contenu>
+							<Contenu Column="2" Margin="0,10,0,0">9 Déc 2016</Contenu>							
+						</Grid>
+					</Rectangle>
+
+					<Rectangle Alignment="Bottom" Margin="0,118" Padding="0" Width="358" Height="90" Fill="#eeeeee" ClipToBounds="true">
+						<Grid ColumnCount="3" RowCount="2" CellSpacing="25" Margin="0,10,0,0">
+							<Text Column="0" Row="0" TextAlignment="Center" Color="#454545" FontSize="30">37min</Text>
+							<Text Column="1" Row="0" TextAlignment="Center" Color="#454545" FontSize="30">192m</Text>							
+							<Text Column="2" Row="0" TextAlignment="Center" Color="#454545" FontSize="30">2,8Km</Text>
+							<Text Column="0" Row="1" TextAlignment="Center" Margin="0,-15,0,0">DUREE</Text>
+							<Text Column="1" Row="1" TextAlignment="Center" Margin="0,-15,0,0">DENIVELE</Text>
+							<Text Column="2" Row="1" TextAlignment="Center" Margin="0,-15,0,0">DISTANCE</Text>
+						</Grid>
+						<DropShadow />
+					</Rectangle>
+
+				</WrapPanel> -->
+
+                <!-- <Image File="Assets/fuse-logo.png" StretchDirection="DownOnly" /> -->
+                <ActivatingAnimation>
+                    <Scale Target="tabBarImage2" Factor="1.5" />
+                    <Change panel2.Color="#eeeeee" />
+                </ActivatingAnimation>
+            </Page>
+
+            <Page ux:Name="page3" Background="#454545">
+            <DockPanel>
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+
+			function Message(icon, sender, subject, summary) {
+				this.sender = sender;
+				this.subject = subject;
+				this.icon = icon;
+				this.summary = summary;
+			}
+
+			var messages = Observable(
+				new Message("contact1", "il y a 7 min", "Super journée à Val Thorens", "Distance parcourue : 2,5 Km \nDénivelé positif : 1400 m"),
+				new Message("contact2", "il y a 8 min", "Grosse sortie sur Serre-chevalier", "Distance parcourue : 8,3 Km"),
+				new Message("contact3", "il y a 12 min", "J'ai bien skié aujourd'hui", "Dénivelé total : 8700 m \nTemps de ski : 6 h"),
+				new Message("contact4", "il y a 15 min", "Trop génial !", "Virages : 147"),
+				new Message("contact5", "il y a 23 min", "Snowpark de Vars !", "Sauts : 148 \nTemps de ski : 7 h 30"),
+				new Message("contact6", "il y a 27 min", "Réallon, ma station préférée", "Dénivelé positif : 850 m"),
+				new Message("contact7", "il y a 31 min", "J'adore iziski :)", "Distance parcourue : 3,7 Km \nDénivelé positif : 1700 m \nDénivelé total : 8400 m \nVirages : 254 \nSauts : 29 \nTemps de ski : 8h"),
+				new Message("contact8", "il y a 44 min", "Vive les Orres", "Distance parcourue : 11,7 Km"),
+				new Message("contact9", "il y a 48 min", "J'ai jamais autant skié", "Temps de ski : 5 h 30"),
+				new Message("contact10", "il y a 54 min", "Encore une journée de folie !", "Virages : 122 \nSauts : 59"),
+				new Message("contact11", "il y a 1 h", "Salut, voici mes stats", "Distance parcourue : 1,3 Km \nDénivelé positif : 500 m \nDénivelé total : 1100 m \nVirages : 49 \nSauts : 12 \nTemps de ski : 2h"),
+				new Message("contact12", "il y a 1 h", "De la super neige", "Temps de ski : 1 h 30"),
+				new Message("contact13", "il y a 1 h", "Bolo bolo bolo bolo", "Virages : 3"),
+				new Message("contact14", "il y a 1h", "Super météo", "Sauts : 87 \nTemps de ski : 4 h 30"),
+				new Message("contact15", "il y a 1h", "Distance maxi dépassée ;)", "Distance parcourue : 42 Km \nTemps de ski : 7h"),
+				new Message("contact16", "il y a 2h", "Cool cette session", "Dénivelé total : 15 000 m")
+			);
+
+			function removeItem(sender) {
+				messages.remove(sender.data);
+			}
+
+			function postponeItem(sender) {
+				messages.remove(sender.data);
+				messages.add(sender.data);
+			}
+
+			module.exports = {
+				messages: messages,
+				removeItem: removeItem,
+				postponeItem: postponeItem
+			};
+		</JavaScript>
+		<Font File="Assets/Fonts/RobotoCondensed-Bold.ttf" ux:Global="Bold" />
+		<Font File="Assets/Fonts/RobotoCondensed-Regular.ttf" ux:Global="Regular" />
+		<Font File="Assets/Fonts/RobotoCondensed-Light.ttf" ux:Global="Light" />
+
+		<FileImageSource ux:Key="contact1" File="Assets/Contacts/Contact1.png" />
+		<FileImageSource ux:Key="contact2" File="Assets/Contacts/Contact2.png" />
+ 		<FileImageSource ux:Key="contact3" File="Assets/Contacts/Contact3.png" />
+		<FileImageSource ux:Key="contact4" File="Assets/Contacts/Contact4.png" />
+		<FileImageSource ux:Key="contact5" File="Assets/Contacts/Contact5.png" />
+		<FileImageSource ux:Key="contact6" File="Assets/Contacts/Contact6.png" />
+		<FileImageSource ux:Key="contact7" File="Assets/Contacts/Contact7.png" />
+		<FileImageSource ux:Key="contact8" File="Assets/Contacts/Contact8.png" />
+		<FileImageSource ux:Key="contact9" File="Assets/Contacts/Contact9.png" />
+		<FileImageSource ux:Key="contact10" File="Assets/Contacts/Contact10.png" />
+		<FileImageSource ux:Key="contact11" File="Assets/Contacts/Contact11.png" />
+		<FileImageSource ux:Key="contact12" File="Assets/Contacts/Contact12.png" />
+		<FileImageSource ux:Key="contact13" File="Assets/Contacts/Contact13.png" />
+		<FileImageSource ux:Key="contact14" File="Assets/Contacts/Contact14.png" />
+		<FileImageSource ux:Key="contact15" File="Assets/Contacts/Contact15.png" />
+		<FileImageSource ux:Key="contact16" File="Assets/Contacts/Contact16.png" />
+
+		<StackPanel Dock="Top" Background="#79f">
+			<StatusBarBackground />
+			<Fuse.iOS.StatusBarConfig Style="Light" />
+			<!-- <Panel>
+				<Image File="Assets/Icons/menu.png" Alignment="CenterLeft" Margin="10" Height="15" Offset="0,2" />
+				<Text Value="Inbox" TextAlignment="Center" Color="#fff" Font="Bold" FontSize="24" Margin="0,10,0,5" />
+			</Panel> -->
+		</StackPanel>
+		<BottomBarBackground Dock="Bottom" />
+		<ScrollView>
+			<StackPanel>
+				<Each Items="{messages}">
+					<Panel>
+						<PageControl Active="contents">
+							<Page>
+								<ActivatingAnimation>
+									<Set postponeText.Opacity="0" />
+									<Set doneText.Opacity="1" />
+									<Set postponeIcon.Opacity="0" />
+									<Set checkmarkIcon.Opacity="1" />
+									<Change background.Color="#050" Easing="ExponentialOut" />
+									<Scale Target="checkmarkIcon" Factor="2.8" Easing="BackOut" />
+								</ActivatingAnimation>
+								<WhileActive>
+									<Callback Handler="{removeItem}" />
+								</WhileActive>
+							</Page>
+							<Page Background="#eeeeee" ux:Name="contents">
+								<DockPanel Margin="7,1,7,0">
+									<Circle Height="50" Width="50" Dock="Left" Margin="7,7,0,7" Alignment="TopLeft">
+										<ImageFill Source="{DataToResource icon}" />
+									</Circle>
+
+									<StackPanel Margin="7,3,7,7">
+										<Text Font="Regular" Value="{subject}" FontSize="16" />
+										<Text Font="Regular" Value="{sender}" FontSize="16" Color="#999" />
+										<Text TextWrapping="Wrap" Font="Light" Value="{summary}" FontSize="14" Color="#000" />
+									</StackPanel>
+								</DockPanel>
+							</Page>
+							<Page>
+								<ActivatingAnimation>
+									<Set postponeText.Opacity="1" />
+									<Set doneText.Opacity="0" />
+									<Set checkmarkIcon.Opacity="0" />
+									<Set postponeIcon.Opacity="1" />
+									<Change background.Color="#050" Easing="ExponentialOut" />
+									<Scale Target="postponeIcon" Factor="2.8" Easing="BackOut" />
+								</ActivatingAnimation>
+								<WhileActive>
+									<Callback Handler="{postponeItem}" />
+								</WhileActive>
+							</Page>
+						</PageControl>
+
+						<Text ux:Class="Operation" Font="Regular" TextAlignment="Center" Alignment="Center"
+							Color="#fff" FontSize="22" />
+						<Operation ux:Name="doneText" >VU</Operation>
+						<Operation ux:Name="postponeText">VU</Operation>
+						<Image ux:Class="ImageProfil" Width="20" Height="20" Margin="30" />
+						<ImageProfil ux:Name="checkmarkIcon" Alignment="CenterLeft" File="Assets/Icons/Checkmark.png" />
+						<ImageProfil ux:Name="postponeIcon" Alignment="CenterRight" File="Assets/Icons/Checkmark.png" />
+						<Rectangle>
+							<SolidColor ux:Name="background" Color="#fff" />
+						</Rectangle>
+						<RemovingAnimation>
+							<Move RelativeTo="Size" Y="-1" Duration="0.4" Easing="CircularInOut" />
+						</RemovingAnimation>
+
+						<LayoutAnimation>
+							<Move RelativeTo="LayoutChange" Y="1" Duration="0.8" Easing="CircularInOut" />
+						</LayoutAnimation>
+					</Panel>
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>            				
+
+                <ActivatingAnimation>
+                    <Scale Target="tabBarImage3" Factor="1.5" />
+                    <Change panel3.Color="#eeeeee" />
+                </ActivatingAnimation>
+            </Page>
+
+            <Page ux:Name="page4" Background="#454545">
+            	<DockPanel>
+					<StatusBarBackground Dock="Top" />
+					<BottomFrameBackground Dock="Bottom" />
+
+					<Text Dock="Top" FontSize="28" TextAlignment="Center" TextColor="#00a6ff" Margin="0,15,0,15">Paramètres</Text>
+
+					<Text ux:Class="Header" Dock="Top" FontSize="24" TextColor="#00a6ff" TextAlignment="Center" Margin="0,35,0,5" />
+					<Text ux:Class="Description" TextWrapping="Wrap" Dock="Top" FontSize="14" TextAlignment="Center" Margin="35,10,35,5" />
+					<Image ux:Class="IconParametres" Alignment="VerticalCenter" Height="80" Width="80" Color="#dedede" />
+
+					<ToggleControl ux:Class="MySwitch" Margin="4,4,4,4"
+								   Width="80"
+								   Height="48" Focus.IsFocusable="true">
+						<Clicked>
+							<Toggle Target="this" />
+						</Clicked>
+
+						<SwipeGesture Direction="Right" Length="38" Type="Active" ux:Name="swipe" IsActive="{Property this.Value}"/>
+
+						<SwipingAnimation Source="swipe">
+							<Move Target="thumb" X="38"/>
+						</SwipingAnimation>
+
+						<Panel Layer="Background">
+							<Circle ux:Name="thumb"
+									Alignment="CenterLeft"
+									Width="34"
+									Height="34"
+									Margin="4,0,14,0">
+								<SolidColor ux:Name="thumbFill" Color="#fafafaff" />
+								<DropShadow Angle="90" Distance="0" Size="2" Spread="0.05" />
+							</Circle>
+
+							<Rectangle
+								CornerRadius="23"
+								Width="80"
+								Height="40"
+								Alignment="Center">
+								<SolidColor ux:Name="trackFill" Color="#e7e7e7" />
+								<Stroke>
+									<SolidColor ux:Name="strokeColor" Color="#ffffff00" />
+								</Stroke>
+							</Rectangle>
+						</Panel>
+
+						<WhileDisabled>
+							<Change thumbFill.Color="#bdbdbdff" Easing="QuadraticInOut" Duration="0.25" />
+							<Change trackFill.Color="#0000001e" Easing="QuadraticInOut" Duration="0.25" />
+						</WhileDisabled>
+
+					</ToggleControl>
+
+					<Grid RowCount="2">
+						<DockPanel ClipToBounds="true">
+							<Rectangle Layer="Background">
+								<SolidColor ux:Name="firstBackgroundColor" Color="#fff" />
+							</Rectangle>
+							<Header Dock="Top" ux:Name="firstHeader">Activer notifications push</Header>
+							<Description Dock="Top">Recevez vos notifications même quand vous n'utilisez pas l'application.</Description>
+							<StackPanel Orientation="Horizontal" Alignment="Center">
+								<Panel>
+									<!-- <IconSettings File="Assets/Chat2OnlyBack.png" ux:Name="chatBack" /> -->
+									<IconParametres File="Assets/Icons/notification-bell4.png" ux:Name="chatFront" />
+								</Panel>
+								<Panel Margin="35,0,0,0">
+									<MySwitch Alignment="VerticalCenter">
+										<WhileTrue>
+											<Change blueScaling.Factor="7" Duration="0.25" Easing="QuadraticOut" Delay="0.20" />
+											<Change firstHeader.TextColor="#fff" Duration="0.25" Delay="0.20" />
+											<!-- <Change chatBack.Color="#fff" Duration="0.25" Delay="0.35" Easing="QuadraticOut" /> -->
+											<Change chatFront.Color="#ffffff" Duration="0.25" Delay="0.25" Easing="QuadraticOut" />
+											<Change blueColor.Color="#11abfe" Duration="0.25" Easing="QuadraticOut" Delay="0.20" />
+											<Change firstBackgroundColor.Color="#11abfe" Duration="0.05" Delay="0.35" />
+											<Change blueCircleTranslation.X="19" Duration="0" DurationBack="0" Delay="0.25" Easing="QuadraticInOut"/>
+										</WhileTrue>
+									</MySwitch>
+									<Circle>
+										<Translation ux:Name="blueCircleTranslation" X="-19" />
+										<SolidColor ux:Name="blueColor" Color="#eeeeee" />
+										<Scaling ux:Name="blueScaling" Factor="0" />
+									</Circle>
+								</Panel>
+							</StackPanel>
+						</DockPanel>
+						<DockPanel ClipToBounds="true">
+							<Rectangle Layer="Background">
+								<SolidColor ux:Name="secondBackgroundColor" Color="#fff" />
+							</Rectangle>
+							<Header Dock="Top" ux:Name="secondHeader">Mode Hors-ligne</Header>
+							<Description Dock="Top">Utilisez l'application même quand vous n'avez pas d'accès réseau.</Description>
+							<StackPanel Orientation="Horizontal" Alignment="Center">
+								<IconParametres Height="80" File="Assets/Icons/lightning-electric-energy3.png" ux:Name="connect" />
+								<Panel Margin="35,0,0,0">
+									<MySwitch Alignment="VerticalCenter">
+										<WhileTrue>
+											<Change orangeScaling.Factor="7" Duration="0.25" Easing="QuadraticOut" Delay="0.20" />
+											<Change secondHeader.TextColor="#fff" Duration="0.25" Delay="0.20" />
+											<Change connect.Color="#fff" Duration="0.25" Delay="0.35" />
+											<Change orangeColor.Color="#ff7f2a" Duration="0.25" Easing="QuadraticOut" Delay="0.20" />
+											<Change secondBackgroundColor.Color="#ff7f2a" Duration="0.05" Delay="0.35" />
+											<Change orangeCircleTranslation.X="19" Duration="0" DurationBack="0" Delay="0.25" Easing="QuadraticInOut"/>
+										</WhileTrue>
+									</MySwitch>
+									<Circle>
+										<Translation ux:Name="orangeCircleTranslation" X="-19" />
+										<SolidColor ux:Name="orangeColor" Color="#eeeeee" />
+										<Scaling ux:Name="orangeScaling" Factor="0" />
+									</Circle>
+								</Panel>
+							</StackPanel>
+						</DockPanel>
+					</Grid>
+				</DockPanel>
+
+                <!-- <Image File="Assets/fuse-logo.png" StretchDirection="DownOnly" /> -->
+                <ActivatingAnimation>
+                    <Scale Target="tabBarImage4" Factor="1.5" />
+                    <Change panel4.Color="#ffffff" />                    
+                </ActivatingAnimation>
+            </Page>
+        </PageControl>
+
+        <Grid Columns="1*,1*,1*,1*" Height="45" Dock="Bottom">
+            <Image ux:Class="Icon" Margin="10" />
+            <Panel ux:Name="panel1" Background="#333333">
+                <Icon ux:Name="tabBarImage1" File="Assets/icon-accueil.png" />
+                <Clicked>
+                    <Set pages.Active="page1" />
+                </Clicked>
+            </Panel>
+            <Panel ux:Name="panel2" Background="#333333">
+                <Icon ux:Name="tabBarImage2" File="Assets/icon-stats2.png" />
+                <Clicked>
+                    <Set pages.Active="page2" />
+                </Clicked>
+            </Panel>
+            <Panel ux:Name="panel3" Background="#333333">
+                <Icon ux:Name="tabBarImage3" File="Assets/icon-profil.png" />
+                <Clicked>
+                    <Set pages.Active="page3" />
+                </Clicked>
+            </Panel>
+            <Panel ux:Name="panel4" Background="#333333">
+                <Icon ux:Name="tabBarImage4" File="Assets/icon-settings.png" />
+                <Clicked>
+                    <Set pages.Active="page4" />
+                </Clicked>
+            </Panel>
+        </Grid>
+    </DockPanel>
+</App>
